@@ -9,8 +9,13 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./header"
-import "./layout.css"
+import Header from "./Header"
+
+import { Global, css } from "@emotion/core"
+import { ThemeProvider, CSSReset } from "@chakra-ui/core"
+import customTheme from "../theme"
+import Footer from "./Footer"
+console.log(customTheme)
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -25,21 +30,19 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
+      <ThemeProvider theme={customTheme}>
+        <CSSReset />
+        {/*<Global
+          styles={css`
+            body {
+              font-family: "Montserrat", sans-serif;
+            }
+          `}
+        />*/}
+        <Header siteTitle={data.site.siteMetadata.title} />
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
+        <Footer />
+      </ThemeProvider>
     </>
   )
 }
