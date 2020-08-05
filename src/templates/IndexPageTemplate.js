@@ -76,8 +76,8 @@ const IndexPageTemplate = ({ hero, isPreview = false }) => {
     <Layout isPreview={isPreview}>
       {!isPreview && <SEO title="Home" />}
       <Hero
-        title="What is CranioSacral Therapy (CST)?"
-        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at arcu odio. Nullam at magna sit amet velit egestas varius. Curabitur at fringilla orci. Proin in velit ullamcorper, tempor est eu, egestas orci."
+        title={hero.title}
+        text={hero.text}
         backgroundImage={hero.image}
         actions={[
           { url: "/", title: "Book now" },

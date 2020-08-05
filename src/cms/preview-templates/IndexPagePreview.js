@@ -9,9 +9,9 @@ const IndexPagePreview = ({ entry, getAsset }) => {
 
   //image={getAsset(data.image)}
   if (data) {
-    console.log("hero: ", getAsset(data.hero.image))
     const hero = data?.hero
       ? {
+          ...data.hero,
           image: getAsset(data.hero.image),
         }
       : {}

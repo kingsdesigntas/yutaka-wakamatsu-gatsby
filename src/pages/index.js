@@ -3,17 +3,33 @@ import IndexPageTemplate from "../templates/IndexPageTemplate"
 import { graphql } from "gatsby"
 
 const IndexPage = ({ data }) => {
-  return <IndexPageTemplate hero={{ image: data?.heroImage }} />
+  const hero = data?.indexPage
+    ? {
+        ...data.indexPage.frontmatter.hero,
+      }
+    : {}
+  return <IndexPageTemplate hero={hero} />
 }
 
 export default IndexPage
 
 export const query = graphql`
-  query {
-    heroImage: file(relativePath: { eq: "Foto_099.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 2000) {
-          ...GatsbyImageSharpFluid
+  query IndexPageQuery {
+    indexPage: markdownRemark(
+      frontmatter: { templateKey: { eq: "index-page" } }
+    ) {
+      frontmatter {
+        templateKey
+        hero {
+          text
+          title
+          image {
+            childImageSharp {
+              fluid(maxWidth: 2000) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
       }
     }
