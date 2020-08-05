@@ -12,7 +12,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./Header"
 
 import { Global, css } from "@emotion/core"
-import { ThemeProvider, CSSReset } from "@chakra-ui/core"
+import { ThemeProvider, CSSReset, LightMode } from "@chakra-ui/core"
 import customTheme from "../theme"
 import Footer from "./Footer"
 
@@ -40,9 +40,11 @@ const Layout = ({ children }) => {
             }
           `}
         />*/}
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <main>{children}</main>
-        <Footer />
+        <LightMode>
+          <Header siteTitle={data.site.siteMetadata.title} />
+          <main>{children}</main>
+          <Footer />
+        </LightMode>
       </ThemeProvider>
     </>
   )
