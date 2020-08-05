@@ -55,7 +55,7 @@ const Section = ({ image = null, title = null, text = null, actions = [] }) => {
   )
 }
 
-const IndexPageTemplate = ({ hero, isPreview = false }) => {
+const IndexPageTemplate = ({ hero, title, isPreview = false }) => {
   /*const sections = [, , ,].fill({
     title: "Craniosacral Therapy",
     text: (
@@ -74,7 +74,13 @@ const IndexPageTemplate = ({ hero, isPreview = false }) => {
   })*/
   return (
     <Layout isPreview={isPreview}>
-      {!isPreview && <SEO title="Home" />}
+      {!isPreview ? (
+        <SEO title={title} />
+      ) : (
+        <Box bg="white" textAlign="center" fontSize="xl" p="4">
+          {title}
+        </Box>
+      )}
       <Hero
         title={hero.title}
         text={hero.text}

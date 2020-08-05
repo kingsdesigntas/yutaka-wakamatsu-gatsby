@@ -8,7 +8,9 @@ const IndexPage = ({ data }) => {
         ...data.indexPage.frontmatter.hero,
       }
     : {}
-  return <IndexPageTemplate hero={hero} />
+  return (
+    <IndexPageTemplate hero={hero} title={data.indexPage.frontmatter.title} />
+  )
 }
 
 export default IndexPage
@@ -20,6 +22,7 @@ export const query = graphql`
     ) {
       frontmatter {
         templateKey
+        title
         hero {
           text
           title

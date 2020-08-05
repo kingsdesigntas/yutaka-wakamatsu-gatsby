@@ -15,7 +15,7 @@ const IndexPagePreview = ({ entry, getAsset }) => {
           image: getAsset(data.hero.image),
         }
       : {}
-    return <IndexPageTemplate hero={hero} isPreview={true} />
+    return <IndexPageTemplate hero={hero} title={data.title} isPreview={true} />
   } else {
     return <div>Loading...</div>
   }
