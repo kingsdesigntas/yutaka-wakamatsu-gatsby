@@ -1,6 +1,6 @@
 ---
 templateKey: index-page
-title: Great coffee with a conscience
+title: CranioSacral Therapy & Remedial Massage
 hero:
   text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at
     arcu odio. Nullam at magna sit amet velit egestas varius. Curabitur at
