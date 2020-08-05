@@ -7,7 +7,6 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./Header"
 
@@ -18,17 +17,7 @@ import Footer from "./Footer"
 
 console.log(customTheme)
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
+const Layout = ({ children, isPreview = false }) => {
   return (
     <>
       <ThemeProvider theme={customTheme}>
@@ -41,9 +30,9 @@ const Layout = ({ children }) => {
           `}
         />*/}
         <LightMode>
-          <Header siteTitle={data.site.siteMetadata.title} />
+          {!isPreview && <Header siteTitle={"Yutaka Wakamatsu"} />}
           <main>{children}</main>
-          <Footer />
+          {!isPreview && <Footer />}
         </LightMode>
       </ThemeProvider>
     </>

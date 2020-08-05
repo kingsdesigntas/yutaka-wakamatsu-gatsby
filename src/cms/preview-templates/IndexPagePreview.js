@@ -7,18 +7,15 @@ const IndexPagePreview = ({ entry, getAsset }) => {
 
   console.log({ data })
 
+  //image={getAsset(data.image)}
   if (data) {
-    return <p>test</p>
-    /*<IndexPageTemplate
-        image={getAsset(data.image)}
-        title={data.title}
-        heading={data.heading}
-        subheading={data.subheading}
-        description={data.description}
-        intro={data.intro || { blurbs: [] }}
-        mainpitch={data.mainpitch || {}}
-      />
-    )*/
+    console.log("hero: ", getAsset(data.hero.image))
+    const hero = data?.hero
+      ? {
+          image: getAsset(data.hero.image),
+        }
+      : {}
+    return <IndexPageTemplate hero={hero} isPreview={true} />
   } else {
     return <div>Loading...</div>
   }

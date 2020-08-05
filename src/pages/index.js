@@ -1,5 +1,6 @@
 import React from "react"
 import IndexPageTemplate from "../templates/IndexPageTemplate"
+import { graphql } from "gatsby"
 
 const IndexPage = ({ data }) => {
   return <IndexPageTemplate hero={{ image: data?.heroImage }} />

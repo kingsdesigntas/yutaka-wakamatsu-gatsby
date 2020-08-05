@@ -55,8 +55,8 @@ const Section = ({ image = null, title = null, text = null, actions = [] }) => {
   )
 }
 
-const IndexPageTemplate = ({ hero }) => {
-  const sections = [, , ,].fill({
+const IndexPageTemplate = ({ hero, isPreview = false }) => {
+  /*const sections = [, , ,].fill({
     title: "Craniosacral Therapy",
     text: (
       <p>
@@ -66,15 +66,15 @@ const IndexPageTemplate = ({ hero }) => {
         bones.
       </p>
     ),
-    image: hero.image,
+    //image: hero.image,
     actions: [
       { url: "/", title: "Book now" },
       { url: "/", title: "More info", variant: "secondary" },
     ],
-  })
+  })*/
   return (
-    <Layout>
-      <SEO title="Home" />
+    <Layout isPreview={isPreview}>
+      {!isPreview && <SEO title="Home" />}
       <Hero
         title="What is CranioSacral Therapy (CST)?"
         text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at arcu odio. Nullam at magna sit amet velit egestas varius. Curabitur at fringilla orci. Proin in velit ullamcorper, tempor est eu, egestas orci."
@@ -84,7 +84,7 @@ const IndexPageTemplate = ({ hero }) => {
           { url: "/", title: "More info", variant: "secondary" },
         ]}
       />
-      <Container py={[10, , 20]}>
+      {/*<Container py={[10, , 20]}>
         <Grid templateColumns={["100%", , "3fr 2fr", "3fr 1fr"]} gap="5">
           <Box>
             <Text fontSize={["2xl", "3xl", "4xl"]} as="h1" mb="3">
@@ -107,7 +107,13 @@ const IndexPageTemplate = ({ hero }) => {
           </Box>
           <Box>
             <Box maxW="sm" mx="auto">
-              <Img fluid={hero.image.childImageSharp.fluid} />
+              <Img
+                fluid={
+                  hero.image.childImageSharp
+                    ? hero.image.childImageSharp.fluid
+                    : hero.image.url
+                }
+              />
             </Box>
           </Box>
         </Grid>
@@ -131,7 +137,7 @@ const IndexPageTemplate = ({ hero }) => {
             />
           ))}
         </Grid>
-      )}
+      )}*/}
     </Layout>
   )
 }

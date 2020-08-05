@@ -36,7 +36,11 @@ const Hero = ({ backgroundImage, title, text = null, actions = [] }) => {
         top="0"
         w="100%"
         h={["200px", , "100%"]}
-        backgroundImage={`url(${backgroundImage?.childImageSharp?.fluid?.src})`}
+        backgroundImage={`url(${
+          backgroundImage?.childImageSharp
+            ? backgroundImage?.childImageSharp?.fluid?.src
+            : backgroundImage?.url
+        })`}
         backgroundSize="cover"
         backgroundPosition="center center"
       ></Box>
