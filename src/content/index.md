@@ -1,10 +1,7 @@
 ---
 templateKey: index-page
 title: CranioSacral Therapy & Remedial Massage
-description: Kaldi is the ultimate spot for coffee lovers who want to learn
-  about their java’s origin and support the farmers that grew it. We take coffee
-  production, roasting and brewing seriously and we’re glad to pass that
-  knowledge to anyone.
+description: This is the SEO description
 hero:
   text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at
     arcu odio. Nullam at magna sit amet velit egestas varius. Curabitur at
