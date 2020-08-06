@@ -11,56 +11,11 @@ hero:
 main:
   title: Hobart CranioSacral & Remedial Massage
   content: >-
-    # Heading 1
-
-
-    ## Heading 2
-
-
-    ### Heading 3
-
-
-    #### Heading 4
-
-
-    ##### Heading 5
-
-
-    ###### Heading 6
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at
+    arcu odio. Nullam at magna sit amet velit egestas varius. Curabitur at
+    fringilla orci. Proin in velit ullamcorper, tempor est eu, egestas orci.
 
 
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at arcu odio. Nullam at magna sit amet velit egestas varius. Curabitur at fringilla orci. Proin in velit ullamcorper, tempor est eu, egestas orci.
-
-
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at arcu odio. Nullam at magna sit amet velit egestas varius. Curabitur at fringilla orci. Proin in velit ullamcorper, tempor est eu, egestas orci.
-
-
-    * List item
-
-    * List item
-
-
-    MOre paragraph
-
-
-    1. List item 1
-
-    2. List item 2
-
-
-    ![Image alt](/assets/foto_099.jpg "Image title")
-
-
-    > quote
-
-
-    `code` **bold** *italic* [](#)[link](#)
-
-
-    ```javascript
-
-    //code block
-
-    ```
   image: /assets/foto_099.jpg
 ---
