@@ -27,15 +27,13 @@ sections:
     image: /assets/foto_099.jpg
     actions:
       - title: Book now
-        link:
-          title: Book now
-          url: "#book-now"
-          object: null
+        url: "#book-now"
+        object: ""
       - title: More info
         url: ""
-        object:
-          value: index
-          label: Home Page
-          collection: pages
-          slug: index
+        object: ""
+        slug: index
+        collection: pages
+        label: Home Page
+        value: index
 ---
