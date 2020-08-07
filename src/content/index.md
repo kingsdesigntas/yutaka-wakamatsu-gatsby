@@ -28,7 +28,7 @@ sections:
     actions:
       - title: Book now
         link:
-          title: test
-          url: ""
+          title: Book now
+          url: "#book-now"
           object: null
 ---
