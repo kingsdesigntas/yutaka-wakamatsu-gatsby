@@ -27,5 +27,8 @@ sections:
     image: /assets/foto_099.jpg
     actions:
       - title: Book now
-        link: "#"
+        link:
+          title: test
+          url: ""
+          object: null
 ---
