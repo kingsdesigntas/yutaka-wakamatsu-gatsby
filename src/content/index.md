@@ -31,4 +31,11 @@ sections:
           title: Book now
           url: "#book-now"
           object: null
+      - title: More info
+        url: ""
+        object:
+          value: index
+          label: Home Page
+          collection: pages
+          slug: index
 ---
