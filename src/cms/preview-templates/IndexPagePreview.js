@@ -32,7 +32,20 @@ const IndexPagePreview = ({ entry, getAsset }) => {
           image: getAsset(data.hero.image),
         }
       : {}
-    return <IndexPageTemplate hero={hero} title={data.title} isPreview={true} />
+
+    const main = data?.main
+      ? { ...data.main, image: getAsset(data.main.image) }
+      : {}
+
+    const sections = (data?.sections ? data.sections : []).map(section => {
+      section.image = section.image ? getAsset(section.image) : null
+      return section
+    })
+
+    return (
+      <IndexPageTemplate
+        hero={hero}
+        title={data.title}
         description={data.description}
         main={main}
         sections={sections}
