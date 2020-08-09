@@ -3,6 +3,8 @@ const path = require("path")
 const { createFilePath } = require("gatsby-source-filesystem")
 const { fmImagesToRelative } = require("gatsby-remark-relative-images")
 
+const parseMarkdown = require("./src/lib/parseMarkdown")
+
 /*
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
@@ -73,7 +75,7 @@ exports.createPages = ({ actions, graphql }) => {
   })
 }*/
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
+exports.onCreateNode = async ({ node, actions, getNode }) => {
   const { createNodeField } = actions
   fmImagesToRelative(node) // convert image paths for gatsby images
 
@@ -84,5 +86,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       node,
       value,
     })
+
+    if (node?.frontmatter?.main?.content) {
+      node.frontmatter.main.content = await parseMarkdown(
+        node.frontmatter.main.content
+      )
+    }
   }
 }

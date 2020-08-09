@@ -24,6 +24,7 @@ collections:
               default: "index-page",
             }
           - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: text }
           - {
               label: Hero,
               name: hero,
@@ -33,5 +34,47 @@ collections:
                   { label: Title, name: title, widget: string },
                   { label: Text, name: text, widget: text },
                   { label: Image, name: image, widget: image },
+                ],
+            }
+          - {
+              label: Main,
+              name: main,
+              widget: object,
+              fields:
+                [
+                  { label: Title, name: title, widget: string },
+                  { label: Content, name: content, widget: markdown },
+                  { label: Image, name: image, widget: image },
+                ],
+            }
+          - {
+              label: Sections,
+              name: sections,
+              widget: list,
+              fields:
+                [
+                  { label: Title, name: title, widget: string },
+                  { label: Content, name: content, widget: text },
+                  { label: Image, name: image, widget: image },
+                  {
+                    label: Actions,
+                    name: actions,
+                    widget: list,
+                    field:
+                      {
+                        label: Link,
+                        name: link,
+                        widget: link,
+                        collections:
+                          [
+                            {
+                              name: "pages",
+                              searchFields: ["label"],
+                              displayField: "label",
+                              valueField: "slug",
+                            },
+                          ],
+                      },
+                  },
                 ],
             }

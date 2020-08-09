@@ -3,13 +3,20 @@ import IndexPageTemplate from "../templates/IndexPageTemplate"
 import { graphql } from "gatsby"
 
 const IndexPage = ({ data }) => {
-  const hero = data?.indexPage
-    ? {
-        ...data.indexPage.frontmatter.hero,
-      }
+  const hero = data?.indexPage?.frontmatter?.hero
+    ? data.indexPage.frontmatter.hero
+    : {}
+
+  const main = data?.indexPage?.frontmatter?.main
+    ? data.indexPage.frontmatter.main
     : {}
   return (
-    <IndexPageTemplate hero={hero} title={data.indexPage.frontmatter.title} />
+    <IndexPageTemplate
+      hero={hero}
+      description={data?.indexPage?.frontmatter?.description}
+      title={data?.indexPage?.frontmatter?.title}
+      main={main}
+    />
   )
 }
 
@@ -23,6 +30,7 @@ export const query = graphql`
       frontmatter {
         templateKey
         title
+        description
         hero {
           text
           title
@@ -33,6 +41,20 @@ export const query = graphql`
               }
             }
           }
+        }
+        main {
+          title
+          content
+          image {
+            childImageSharp {
+              fluid(maxWidth: 350) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+        sections: {
+          
         }
       }
     }

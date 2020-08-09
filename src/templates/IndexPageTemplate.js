@@ -55,8 +55,14 @@ const Section = ({ image = null, title = null, text = null, actions = [] }) => {
   )
 }
 
-const IndexPageTemplate = ({ hero, title, isPreview = false }) => {
-  /*const sections = [, , ,].fill({
+const IndexPageTemplate = ({
+  hero,
+  title,
+  description,
+  main,
+  isPreview = false,
+}) => {
+  const sections = [, , ,].fill({
     title: "Craniosacral Therapy",
     text: (
       <p>
@@ -71,14 +77,25 @@ const IndexPageTemplate = ({ hero, title, isPreview = false }) => {
       { url: "/", title: "Book now" },
       { url: "/", title: "More info", variant: "secondary" },
     ],
-  })*/
+  })
   return (
     <Layout isPreview={isPreview}>
       {!isPreview ? (
-        <SEO title={title} />
+        <SEO title={title} description={description} />
       ) : (
-        <Box bg="white" textAlign="center" fontSize="xl" p="4">
-          {title}
+        <Box bg="white" borderBottom="1px" borderBottomColor="gray.300">
+          <Box bg="white" textAlign="center" fontSize="xl" p="4">
+            <Text fontSize="sm" textAlign="left" fontWeight="bold">
+              Meta Title
+            </Text>
+            {title}
+          </Box>
+          <Box bg="white" textAlign="center" p="4">
+            <Text fontSize="sm" textAlign="left" fontWeight="bold">
+              Meta Description
+            </Text>
+            {description}
+          </Box>
         </Box>
       )}
       <Hero
@@ -90,36 +107,21 @@ const IndexPageTemplate = ({ hero, title, isPreview = false }) => {
           { url: "/", title: "More info", variant: "secondary" },
         ]}
       />
-      {/*<Container py={[10, , 20]}>
+      <Container py={[10, , 20]}>
         <Grid templateColumns={["100%", , "3fr 2fr", "3fr 1fr"]} gap="5">
           <Box>
             <Text fontSize={["2xl", "3xl", "4xl"]} as="h1" mb="3">
-              Hobart CranioSacral & Remedial Massage
+              {main.title}
             </Text>
-            <Copy>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Pellentesque at arcu odio. Nullam at magna sit amet velit
-                egestas varius. Curabitur at fringilla orci. Proin in velit
-                ullamcorper, tempor est eu, egestas orci.{" "}
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Pellentesque at arcu odio. Nullam at magna sit amet velit
-                egestas varius. Curabitur at fringilla orci. Proin in velit
-                ullamcorper, tempor est eu, egestas orci.
-              </p>
-            </Copy>
+            <Copy dangerouslySetInnerHTML={{ __html: main.content }} />
           </Box>
           <Box>
             <Box maxW="sm" mx="auto">
-              <Img
-                fluid={
-                  hero.image.childImageSharp
-                    ? hero.image.childImageSharp.fluid
-                    : hero.image.url
-                }
-              />
+              {main.image.childImageSharp ? (
+                <Img fluid={main.image.childImageSharp.fluid} />
+              ) : (
+                <img src={main.image.url} />
+              )}
             </Box>
           </Box>
         </Grid>
@@ -143,7 +145,7 @@ const IndexPageTemplate = ({ hero, title, isPreview = false }) => {
             />
           ))}
         </Grid>
-      )}*/}
+      )}
     </Layout>
   )
 }
