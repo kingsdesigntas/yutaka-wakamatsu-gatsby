@@ -14,6 +14,7 @@ import { Global, css } from "@emotion/core"
 import { ThemeProvider, CSSReset, LightMode } from "@chakra-ui/core"
 import customTheme from "../theme"
 import Footer from "./Footer"
+import MobileNavigation from "./MobileNavigation"
 
 console.log(customTheme)
 
@@ -33,6 +34,7 @@ const Layout = ({ children, isPreview = false }) => {
           {!isPreview && <Header siteTitle={"Yutaka Wakamatsu"} />}
           <main>{children}</main>
           {!isPreview && <Footer />}
+          {!isPreview && <MobileNavigation />}
         </LightMode>
       </ThemeProvider>
     </>

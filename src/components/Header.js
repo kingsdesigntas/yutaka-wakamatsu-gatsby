@@ -5,6 +5,7 @@ import { Box, Flex, Stack, Text } from "@chakra-ui/core"
 import Container from "./Container"
 import Button from "./Button"
 import { MdMenu } from "react-icons/md"
+import { customEvent } from "../lib/triggerEvent"
 
 const Header = () => (
   <Box as="header">
@@ -85,7 +86,13 @@ const Header = () => (
     </Container>
     <Box bg="blue.500" py={[2, , 6]}>
       <Container>
-        <Box as="button" display={["block", , "none"]} color="white">
+        {/* Mobile nav toggle */}
+        <Box
+          as="button"
+          display={["block", , "none"]}
+          color="white"
+          onClick={() => customEvent(document, "mobile-nav-open")}
+        >
           <Stack as="span" isInline spacing="3" align="center">
             <Text fontSize="4xl" as="span">
               <MdMenu />
