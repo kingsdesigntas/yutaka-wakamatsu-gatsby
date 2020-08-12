@@ -97,6 +97,7 @@ const IndexPageTemplate = ({
   main,
   isPreview = false,
   sections = [],
+  testimonials = [],
 }) => {
   return (
     <Layout isPreview={isPreview}>
@@ -146,28 +147,36 @@ const IndexPageTemplate = ({
           </Box>
         </Grid>
       </Container>
-      <Box bg="blue.500-10" py={[10]}>
-        <Box maxW="3xl" mx="auto" px="2">
-          <TestimonialCarousel>
-            <Box pb="4">
-              <Text fontSize="lg">
-                <Text as={"span"} display="inline-block" fontSize="2xl">
-                  <MdFormatQuote />
-                </Text>
-                Life finds a way. You know what? It is beets. I've crashed into
-                a beet truck. God help us, we're in the hands of engineers. Must
-                go faster... go, go, go, go, go!
-                <Text as={"span"} display="inline-block" fontSize="2xl">
-                  <MdFormatQuote />
-                </Text>
+      {(testimonials?.length || isPreview) && (
+        <Box bg="blue.500-10" py={[10]}>
+          <Box maxW="3xl" mx="auto" px="2">
+            {isPreview ? (
+              <Text fontSize="lg" fontWeight="bold">
+                Testimonials
               </Text>
-              <Text mt="4" textAlign="right" fontWeight="bold">
-                - Jeff Goldblum
-              </Text>
-            </Box>
-          </TestimonialCarousel>
+            ) : (
+              <TestimonialCarousel>
+                {testimonials.map(({ name, text }) => (
+                  <Box pb="4">
+                    <Text fontSize="lg">
+                      <Text as={"span"} display="inline-block" fontSize="2xl">
+                        <MdFormatQuote />
+                      </Text>
+                      {text}
+                      <Text as={"span"} display="inline-block" fontSize="2xl">
+                        <MdFormatQuote />
+                      </Text>
+                    </Text>
+                    <Text mt="4" textAlign="right" fontWeight="bold">
+                      - {name}
+                    </Text>
+                  </Box>
+                ))}
+              </TestimonialCarousel>
+            )}
+          </Box>
         </Box>
-      </Box>
+      )}
       {sections?.length && (
         <Grid gridTemplateColumns="100%" gap={[10, , 20]} py={[10, , 20]}>
           {sections.map((section, index) => (

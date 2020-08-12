@@ -12,6 +12,13 @@ const IndexPage = ({ data }) => {
     : {}
 
   const sections = data?.indexPage?.frontmatter?.sections
+
+  const testimonials = data?.testimonials
+    ? data.testimonials.edges.map(({ node }) => {
+        return node.frontmatter
+      })
+    : []
+
   return (
     <IndexPageTemplate
       hero={hero}
@@ -19,6 +26,7 @@ const IndexPage = ({ data }) => {
       title={data?.indexPage?.frontmatter?.title}
       main={main}
       sections={sections}
+      testimonials={testimonials}
     />
   )
 }
@@ -71,6 +79,19 @@ export const query = graphql`
                 ...GatsbyImageSharpFluid
               }
             }
+          }
+        }
+      }
+    }
+
+    testimonials: allMarkdownRemark(
+      filter: { fields: { slug: { regex: "/^/testimonials//" } } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            text
+            name
           }
         }
       }
