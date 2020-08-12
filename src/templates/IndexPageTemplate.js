@@ -156,8 +156,8 @@ const IndexPageTemplate = ({
               </Text>
             ) : (
               <TestimonialCarousel>
-                {testimonials.map(({ name, text }) => (
-                  <Box pb="4">
+                {testimonials.map(({ name, text }, index) => (
+                  <Box pb="4" key={index}>
                     <Text fontSize="lg">
                       <Text as={"span"} display="inline-block" fontSize="2xl">
                         <MdFormatQuote />
