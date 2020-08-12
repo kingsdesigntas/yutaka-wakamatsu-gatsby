@@ -10,16 +10,27 @@ import Container from "../components/Container"
 import Img from "gatsby-image"
 import Copy from "../components/Copy"
 import Button from "../components/Button"
+import TestimonialCarousel from "../components/TestimonialCarousel"
+import { MdFormatQuote } from "react-icons/md"
 
-const Section = ({ image = null, title = null, text = null, actions = [] }) => {
+const Section = ({
+  image = null,
+  title = null,
+  content = null,
+  actions = [],
+}) => {
   return (
     <Box as="section">
       <Container>
         <Grid templateColumns={["100%", , "2fr 3fr"]} gap="5">
           <Box>
-            {image?.childImageSharp?.fluid && (
+            {image && (
               <Box maxW="sm" mx="auto">
-                <Img fluid={image.childImageSharp.fluid} />
+                {image.childImageSharp ? (
+                  <Img fluid={image.childImageSharp.fluid} />
+                ) : (
+                  <img src={image.url} />
+                )}
               </Box>
             )}
           </Box>
@@ -27,24 +38,48 @@ const Section = ({ image = null, title = null, text = null, actions = [] }) => {
             <Text fontSize={["2xl", "3xl"]} as="h1" mb="3">
               {title}
             </Text>
-            {text && <Copy>{text}</Copy>}
+            {content && <Copy>{content}</Copy>}
             {actions?.length && (
               <Box pt="6">
                 <Stack isInline spacing="5">
-                  {actions.map((action, index) => (
-                    <Button
-                      key={index}
-                      as={Link}
-                      to={action.url}
-                      px="6"
-                      variant="outline"
-                      variantColor={
-                        action.variant === "secondary" ? "blue" : "red"
+                  {actions.map((action, index) => {
+                    const linkProps = {}
+                    let url
+                    if (action.url) {
+                      url = action.url
+                    } else if (action.collection && action.slug) {
+                      url = `${action.collection}/${action.slug}`
+                    }
+                    let as = Link
+                    if (url) {
+                      if (url.charAt(0) === "#") {
+                        as = "a"
                       }
-                    >
-                      {action.title}
-                    </Button>
-                  ))}
+                      if (
+                        url.substr(0, "http://".length) === "http://" ||
+                        url.substr(0, "https://".length) === "https://"
+                      ) {
+                        as = "a"
+                      }
+                    }
+                    if (as === "a") {
+                      linkProps.href = url
+                    } else {
+                      linkProps.to = url
+                    }
+                    return (
+                      <Button
+                        key={index}
+                        as={as}
+                        {...linkProps}
+                        px="6"
+                        variant="outline"
+                        variantColor={index === 0 ? "red" : "blue"}
+                      >
+                        {action.title}
+                      </Button>
+                    )
+                  })}
                 </Stack>
               </Box>
             )}
@@ -61,23 +96,8 @@ const IndexPageTemplate = ({
   description,
   main,
   isPreview = false,
+  sections = [],
 }) => {
-  const sections = [, , ,].fill({
-    title: "Craniosacral Therapy",
-    text: (
-      <p>
-        Remedial massage is a manual manipulation of soft tissue which aims to
-        treat muscles that are damaged, knotted, tense or immobile. It is useful
-        for a number of body dysfunctions that affect the muscles, tendons and
-        bones.
-      </p>
-    ),
-    //image: hero.image,
-    actions: [
-      { url: "/", title: "Book now" },
-      { url: "/", title: "More info", variant: "secondary" },
-    ],
-  })
   return (
     <Layout isPreview={isPreview}>
       {!isPreview ? (
@@ -127,10 +147,25 @@ const IndexPageTemplate = ({
         </Grid>
       </Container>
       <Box bg="blue.500-10" py={[10]}>
-        <Box maxW="2xl" mx="auto" px="2">
-          <Text fontSize={["2xl", "3xl"]} mb="3" textAlign="center">
-            Carousel of testimonials?
-          </Text>
+        <Box maxW="3xl" mx="auto" px="2">
+          <TestimonialCarousel>
+            <Box pb="4">
+              <Text fontSize="lg">
+                <Text as={"span"} display="inline-block" fontSize="2xl">
+                  <MdFormatQuote />
+                </Text>
+                Life finds a way. You know what? It is beets. I've crashed into
+                a beet truck. God help us, we're in the hands of engineers. Must
+                go faster... go, go, go, go, go!
+                <Text as={"span"} display="inline-block" fontSize="2xl">
+                  <MdFormatQuote />
+                </Text>
+              </Text>
+              <Text mt="4" textAlign="right" fontWeight="bold">
+                - Jeff Goldblum
+              </Text>
+            </Box>
+          </TestimonialCarousel>
         </Box>
       </Box>
       {sections?.length && (
@@ -139,7 +174,7 @@ const IndexPageTemplate = ({
             <Section
               key={index}
               title={section.title}
-              text={section.text}
+              content={section.content}
               image={section.image}
               actions={section.actions}
             />

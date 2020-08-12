@@ -13,7 +13,7 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
-      - file: "src/content/index.md"
+      - file: "src/content/pages/index.md"
         label: "Home Page"
         name: "index"
         fields:
@@ -78,3 +78,13 @@ collections:
                   },
                 ],
             }
+  - name: "testimonials"
+    label: "Testimonials"
+    create: true
+    folder: "src/content/testimonials"
+    identifier_field: name
+    fields:
+      [
+        { label: "Text", name: "text", widget: "text" },
+        { label: "Name", name: "name", widget: "string" },
+      ]

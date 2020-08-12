@@ -37,10 +37,13 @@ const IndexPagePreview = ({ entry, getAsset }) => {
       ? { ...data.main, image: getAsset(data.main.image) }
       : {}
 
-    const sections = (data?.sections ? data.sections : []).map(section => {
-      section.image = section.image ? getAsset(section.image) : null
-      return section
-    })
+    const sections = data?.sections
+      ? data.sections.map(section => {
+          const _section = { ...section }
+          _section.image = section.image ? getAsset(section.image) : null
+          return _section
+        })
+      : []
 
     return (
       <IndexPageTemplate

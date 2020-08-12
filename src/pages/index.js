@@ -10,12 +10,15 @@ const IndexPage = ({ data }) => {
   const main = data?.indexPage?.frontmatter?.main
     ? data.indexPage.frontmatter.main
     : {}
+
+  const sections = data?.indexPage?.frontmatter?.sections
   return (
     <IndexPageTemplate
       hero={hero}
       description={data?.indexPage?.frontmatter?.description}
       title={data?.indexPage?.frontmatter?.title}
       main={main}
+      sections={sections}
     />
   )
 }
@@ -53,8 +56,22 @@ export const query = graphql`
             }
           }
         }
-        sections: {
-          
+        sections {
+          actions {
+            title
+            url
+            collection
+            slug
+          }
+          content
+          title
+          image {
+            childImageSharp {
+              fluid(maxWidth: 350) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
       }
     }
