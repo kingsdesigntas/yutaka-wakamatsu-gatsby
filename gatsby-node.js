@@ -54,7 +54,11 @@ exports.onCreateNode = async ({ node, actions, getNode }) => {
       value,
     })
 
-    if (node?.frontmatter?.main?.content) {
+    if (
+      node.frontmatter &&
+      node.frontmatter.main &&
+      node.frontmatter.main.content
+    ) {
       node.frontmatter.main.content = await parseMarkdown(
         node.frontmatter.main.content
       )
