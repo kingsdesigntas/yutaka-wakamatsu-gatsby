@@ -3,7 +3,7 @@
  */
 import { Link } from "gatsby"
 
-export default function mapLinkToHref(link) {
+export default function mapLink(link) {
   const linkProps = {
     as: Link,
     to: "/",

@@ -76,7 +76,7 @@ const Header = () => {
             <Stack as="nav" isInline spacing="3">
               {settings?.menu?.secondary?.length &&
                 settings.menu.secondary.map(({ link }, index) => (
-                  <Button {...mapLink(link)} key={index} variant="link" to="/">
+                  <Button {...mapLink(link)} key={index} variant="link">
                     {link.title}
                   </Button>
                 ))}

@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import { MdClose } from "react-icons/md"
 import useSettings from "../lib/useSettings"
 import phoneToLink from "../lib/phoneToLink"
+import mapLink from "../lib/mapLink"
 
 const MobileNavigation = () => {
   const settings = useSettings()
@@ -117,76 +118,34 @@ const MobileNavigation = () => {
               </Button>
             </Box>
           </Flex>
-          <Button
-            justifyContent="flex-start"
-            variant="link"
-            as={Link}
-            to="/"
-            variantColor="white"
-            fontWeight="bold"
-          >
-            CranioSacral Therapy (CST)
-          </Button>
-          <Button
-            justifyContent="flex-start"
-            variant="link"
-            as={Link}
-            to="/"
-            variantColor="white"
-            fontWeight="bold"
-          >
-            CST Study Group
-          </Button>
-          <Button
-            justifyContent="flex-start"
-            variant="link"
-            as={Link}
-            to="/"
-            variantColor="white"
-            fontWeight="bold"
-          >
-            Remedial Massage
-          </Button>
-          <Button
-            justifyContent="flex-start"
-            variant="link"
-            as={Link}
-            to="/"
-            variantColor="white"
-            fontWeight="bold"
-          >
-            Still Point Inducer
-          </Button>
-          <Button
-            justifyContent="flex-start"
-            variant="link"
-            as={Link}
-            to="/"
-            variantColor="white"
-            fontWeight="normal"
-          >
-            About Yutaka
-          </Button>
-          <Button
-            justifyContent="flex-start"
-            variant="link"
-            as={Link}
-            to="/"
-            variantColor="white"
-            fontWeight="normal"
-          >
-            Testimonials
-          </Button>
-          <Button
-            justifyContent="flex-start"
-            variant="link"
-            as={Link}
-            to="/"
-            variantColor="white"
-            fontWeight="normal"
-          >
-            Contact
-          </Button>
+          {settings?.menu?.primary?.length &&
+            settings.menu.primary.map(({ link }, index) => (
+              <Button
+                justifyContent="flex-start"
+                variant="link"
+                {...mapLink(link)}
+                key={index}
+                variantColor="white"
+                fontWeight="bold"
+                whiteSpace="normal"
+              >
+                {link.title}
+              </Button>
+            ))}
+          {settings?.menu?.secondary?.length &&
+            settings.menu.secondary.map(({ link }, index) => (
+              <Button
+                justifyContent="flex-start"
+                variant="link"
+                {...mapLink(link)}
+                key={index}
+                variantColor="white"
+                fontWeight="normal"
+                whiteSpace="normal"
+              >
+                {link.title}
+              </Button>
+            ))}
         </Stack>
       </Box>
     </Box>
