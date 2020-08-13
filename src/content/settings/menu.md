@@ -1,11 +1,9 @@
 ---
 primary:
-  - title: CranioSacral Therapy (CST)
+  - title: CranioSacral Therapy & Remedial Massage
     url: ""
-  - title: CST Study Group
-    url: "#study-group"
-  - title: Remedial Massage
-    url: "#remedial-massage"
-  - title: Still Point Inducer
-    url: "#spi"
+    slug: index
+    collection: template_pages
+    label: CranioSacral Therapy & Remedial Massage
+    value: template_pages/index
 ---
