@@ -2,8 +2,12 @@ import React, { useEffect, useState, useRef, useCallback } from "react"
 import { Box, Stack, Button, Flex } from "@chakra-ui/core"
 import { Link } from "gatsby"
 import { MdClose } from "react-icons/md"
+import useSettings from "../lib/useSettings"
+import phoneToLink from "../lib/phoneToLink"
 
 const MobileNavigation = () => {
+  const settings = useSettings()
+
   const hash = "#mobile-navigation"
 
   const [isOpen, setIsOpen] = useState(false)
@@ -27,7 +31,6 @@ const MobileNavigation = () => {
   }
 
   const handleLinkClick = e => {
-    console.log("click")
     setIsOpen(false)
   }
 
@@ -89,11 +92,7 @@ const MobileNavigation = () => {
                 as="a"
                 variant="outline"
                 variantColor="white"
-                href="#"
-                onClick={e => {
-                  e.preventDefault()
-                  alert("this hasn't been set!")
-                }}
+                href={`tel:${phoneToLink(settings?.contact?.phone)}`}
                 size="sm"
                 py={2}
                 height="auto"
@@ -108,11 +107,7 @@ const MobileNavigation = () => {
                 as="a"
                 variant="outline"
                 variantColor="white"
-                href="#"
-                onClick={e => {
-                  e.preventDefault()
-                  alert("this hasn't been set!")
-                }}
+                href={`mailto:${settings?.contact?.email}`}
                 size="sm"
                 py={2}
                 height="auto"
