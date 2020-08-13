@@ -14,32 +14,36 @@ const TestimonialCarousel = ({ children }) => {
       showIndicators={false}
       swipeable={true}
       autoPlay={true}
-      renderArrowNext={onClick => (
-        <button
-          onClick={onClick}
-          css={css`
-            position: absolute;
-            right: 1px;
-            bottom: 1px;
-            font-size: 2rem;
-          `}
-        >
-          <MdChevronRight />
-        </button>
-      )}
-      renderArrowPrev={onClick => (
-        <button
-          onClick={onClick}
-          css={css`
-            position: absolute;
-            right: calc(2rem + 1px);
-            bottom: 1px;
-            font-size: 2rem;
-          `}
-        >
-          <MdChevronLeft />
-        </button>
-      )}
+      renderArrowNext={onClick =>
+        children.length > 1 && (
+          <button
+            onClick={onClick}
+            css={css`
+              position: absolute;
+              right: 1px;
+              bottom: 1px;
+              font-size: 2rem;
+            `}
+          >
+            <MdChevronRight />
+          </button>
+        )
+      }
+      renderArrowPrev={onClick =>
+        children.length > 1 && (
+          <button
+            onClick={onClick}
+            css={css`
+              position: absolute;
+              right: calc(2rem + 1px);
+              bottom: 1px;
+              font-size: 2rem;
+            `}
+          >
+            <MdChevronLeft />
+          </button>
+        )
+      }
       css={css`
         outline: none;
         .carousel {

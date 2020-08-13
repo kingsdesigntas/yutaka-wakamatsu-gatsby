@@ -85,7 +85,7 @@ export const query = graphql`
     }
 
     testimonials: allMarkdownRemark(
-      filter: { fields: { slug: { regex: "/^/testimonials//" } } }
+      filter: { fields: { sourceInstanceName: { eq: "testimonials" } } }
     ) {
       edges {
         node {
