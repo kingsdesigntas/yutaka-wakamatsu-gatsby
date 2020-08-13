@@ -26,7 +26,7 @@ const IndexPagePreview = ({ entry, getAsset }) => {
 
   useEffect(() => {
     loadData()
-  }, [loadData])
+  }, [])
 
   //image={getAsset(data.image)}
   if (data) {

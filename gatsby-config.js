@@ -82,6 +82,7 @@ module.exports = {
         ],
       },
     },
+    "gatsby-source-instance-name-for-remark",
     {
       resolve: "gatsby-plugin-netlify-cms",
       options: {

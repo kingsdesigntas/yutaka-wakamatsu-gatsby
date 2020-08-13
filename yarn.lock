@@ -7390,6 +7390,11 @@ gatsby-source-filesystem@^2.3.14:
     valid-url "^1.0.9"
     xstate "^4.10.0"
 
+gatsby-source-instance-name-for-remark@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/gatsby-source-instance-name-for-remark/-/gatsby-source-instance-name-for-remark-0.1.1.tgz#8c871d5c2980c01e794445128fa5c702f194da2b"
+  integrity sha512-fVfH6V4M18Km4O4+CV3QjgG3/S+bktx0o2LtSh9EYqEqFikA+ygsK+x4L3wNZRNR22KUq2UeuNxqFoQc1U5AVQ==
+
 gatsby-telemetry@^1.3.14:
   version "1.3.14"
   resolved "https://registry.yarnpkg.com/gatsby-telemetry/-/gatsby-telemetry-1.3.14.tgz#4c53deccbac753e19052ddd50dff818ebaac8575"
