@@ -68,9 +68,15 @@ collections:
                         collections:
                           [
                             {
+                              name: "template_pages",
+                              searchFields: ["title"],
+                              displayField: "title",
+                              valueField: "slug",
+                            },
+                            {
                               name: "pages",
-                              searchFields: ["label"],
-                              displayField: "label",
+                              searchFields: ["title"],
+                              displayField: "title",
                               valueField: "slug",
                             },
                           ],
@@ -100,6 +106,63 @@ collections:
   - name: "settings"
     label: "Settings"
     files:
+      - file: "src/content/settings/menu.md"
+        label: "Navigation Menu"
+        name: "menu"
+        fields:
+          - {
+              label: "Primary Items",
+              name: primary,
+              widget: list,
+              field:
+                {
+                  label: Link,
+                  name: link,
+                  widget: link,
+                  collections:
+                    [
+                      {
+                        name: "template_pages",
+                        searchFields: ["title"],
+                        displayField: "title",
+                        valueField: "slug",
+                      },
+                      {
+                        name: "pages",
+                        searchFields: ["title"],
+                        displayField: "title",
+                        valueField: "slug",
+                      },
+                    ],
+                },
+            }
+          - {
+              label: "Secondary Items",
+              name: secondary,
+              widget: list,
+              field:
+                {
+                  label: Link,
+                  name: link,
+                  widget: link,
+                  collections:
+                    [
+                      {
+                        name: "template_pages",
+                        searchFields: ["title"],
+                        displayField: "title",
+                        valueField: "slug",
+                      },
+                      {
+                        name: "pages",
+                        searchFields: ["title"],
+                        displayField: "title",
+                        valueField: "slug",
+                      },
+                    ],
+                },
+            }
+
       - file: "src/content/settings/contact.md"
         label: "Contact Details"
         name: "contact"

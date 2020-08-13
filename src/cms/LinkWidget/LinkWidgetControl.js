@@ -2,7 +2,7 @@
 import { css, jsx } from "@emotion/core"
 //import CMS from "netlify-cms-app"
 import styled from "@emotion/styled"
-import React, { forwardRef, memo } from "react"
+import React, { forwardRef, memo, useEffect } from "react"
 import { Async as AsyncSelect } from "react-select"
 //import { FixedSizeList } from "react-window"
 //import { find, isEmpty, last, debounce, get, uniqBy, sortBy } from "lodash"
@@ -108,13 +108,8 @@ const LinkWidget = memo(
       const [formData, setFormData] = React.useState({
         title: "",
         url: "",
-        object: "",
         ...parsedValue,
       })
-
-      // useEffect(() => {
-      //   onChange(formData)
-      // }, [formData])
 
       const handleChange = e => {
         const newData = { [e.target.name]: e.target.value }
@@ -123,10 +118,13 @@ const LinkWidget = memo(
 
       const handleSelectChange = e => {
         const newData = {
-          slug: e.data.slug,
-          collection: e.data.collection,
-          label: e.label,
-          value: e.value,
+          slug: e && e.data.slug,
+          collection: e && e.data.collection,
+          label: e && e.label,
+          value: e && e.value,
+        }
+        if (!formData.title && e) {
+          newData.title = e.label
         }
         setFormData({ ...formData, ...newData })
       }
@@ -144,8 +142,9 @@ const LinkWidget = memo(
           collectionHits.forEach(hit => {
             const collection = collections.find(c => c.name === hit.collection)
             if (!collection) return //This should never happen...
-            const label = hit[collection.displayField]
-            const value = hit[collection.valueField]
+            const label = hit.data[collection.displayField]
+
+            const value = `${hit.collection}/${hit[collection.valueField]}`
             acc.push({ label, value, data: hit })
           })
           return acc
@@ -167,7 +166,6 @@ const LinkWidget = memo(
               optionsLength
             ).then(({ payload }) => {
               const hits = payload.response?.hits || []
-              console.log({ hits })
 
               return hits
             })
@@ -175,6 +173,8 @@ const LinkWidget = memo(
         )
 
         const parsedOptions = parseHitOptions(options)
+
+        console.log({ options: parsedOptions })
 
         return parsedOptions
       }
@@ -232,7 +232,6 @@ const LinkWidget = memo(
                   inputId={"link-object"}
                   cacheOptions
                   defaultOptions
-                  value={formData.object}
                   onChange={handleSelectChange}
                   loadOptions={loadOptions}
                   className={classNameWrapper}
