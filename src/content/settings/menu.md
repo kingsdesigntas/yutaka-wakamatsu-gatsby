@@ -1,10 +1,10 @@
 ---
 primary:
-  - title: CranioSacral Therapy (CST)
+  - title: CranioSacral Therapy & Remedial Massage
     url: ""
     object: ""
-    slug: craniosacral-therapy-cst
-    collection: pages
-    label: CranioSacral Therapy (CST)
-    value: pages/craniosacral-therapy-cst
+    slug: index
+    collection: template_pages
+    label: CranioSacral Therapy & Remedial Massage
+    value: template_pages/index
 ---
