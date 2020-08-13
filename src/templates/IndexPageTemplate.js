@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
@@ -11,6 +10,7 @@ import Copy from "../components/Copy"
 import Button from "../components/Button"
 import TestimonialCarousel from "../components/TestimonialCarousel"
 import { MdFormatQuote } from "react-icons/md"
+import mapLink from "../lib/mapLink"
 
 const Section = ({
   image = null,
@@ -42,34 +42,10 @@ const Section = ({
               <Box pt="6">
                 <Stack isInline spacing="5">
                   {actions.map((action, index) => {
-                    const linkProps = {}
-                    let url
-                    if (action.url) {
-                      url = action.url
-                    } else if (action.collection && action.slug) {
-                      url = `${action.collection}/${action.slug}`
-                    }
-                    let as = Link
-                    if (url) {
-                      if (url.charAt(0) === "#") {
-                        as = "a"
-                      }
-                      if (
-                        url.substr(0, "http://".length) === "http://" ||
-                        url.substr(0, "https://".length) === "https://"
-                      ) {
-                        as = "a"
-                      }
-                    }
-                    if (as === "a") {
-                      linkProps.href = url
-                    } else {
-                      linkProps.to = url
-                    }
+                    const linkProps = mapLink(action)
                     return (
                       <Button
                         key={index}
-                        as={as}
                         {...linkProps}
                         px="6"
                         variant="outline"
