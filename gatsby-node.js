@@ -5,13 +5,15 @@ const { fmImagesToRelative } = require("gatsby-remark-relative-images")
 
 const parseMarkdown = require("./src/lib/parseMarkdown")
 
-/*
-exports.createPages = ({ actions, graphql }) => {
+exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
 
-  return graphql(`
+  const result = await graphql(`
     {
-      allMarkdownRemark(limit: 1000) {
+      allMarkdownRemark(
+        filter: { fields: { sourceInstanceName: { eq: "pages" } } }
+        limit: 1000
+      ) {
         edges {
           node {
             id
@@ -19,61 +21,32 @@ exports.createPages = ({ actions, graphql }) => {
               slug
             }
             frontmatter {
-              tags
-              templateKey
+              title
+              content
+              description
             }
           }
         }
       }
     }
-  `).then(result => {
-    if (result.errors) {
-      result.errors.forEach(e => console.error(e.toString()))
-      return Promise.reject(result.errors)
-    }
+  `)
 
-    const posts = result.data.allMarkdownRemark.edges
+  const pages = result.data.allMarkdownRemark.edges
 
-    posts.forEach(edge => {
-      const id = edge.node.id
-      createPage({
-        path: edge.node.fields.slug,
-        tags: edge.node.frontmatter.tags,
-        component: path.resolve(
-          `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
-        ),
-        // additional data can be passed via context
-        context: {
-          id,
-        },
-      })
-    })
-
-    // Tag pages:
-    let tags = []
-    // Iterate through each post, putting all found tags into `tags`
-    posts.forEach(edge => {
-      if (_.get(edge, `node.frontmatter.tags`)) {
-        tags = tags.concat(edge.node.frontmatter.tags)
-      }
-    })
-    // Eliminate duplicate tags
-    tags = _.uniq(tags)
-
-    // Make tag pages
-    tags.forEach(tag => {
-      const tagPath = `/tags/${_.kebabCase(tag)}/`
-
-      createPage({
-        path: tagPath,
-        component: path.resolve(`src/templates/tags.js`),
-        context: {
-          tag,
-        },
-      })
+  pages.forEach(({ node }) => {
+    const { id } = node
+    const { slug } = node.fields
+    createPage({
+      path: slug,
+      component: path.resolve(`src/templates/PageTemplate.js`),
+      context: {
+        id,
+        slug,
+        ...node.frontmatter,
+      },
     })
   })
-}*/
+}
 
 exports.onCreateNode = async ({ node, actions, getNode }) => {
   const { createNodeField } = actions
