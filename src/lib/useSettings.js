@@ -14,13 +14,20 @@ const useSettings = () => {
         }
       }
 
-      settings: markdownRemark(
+      menu: markdownRemark(
         fields: { sourceInstanceName: { eq: "settings" } }
         frontmatter: { templateKey: { eq: "menu" } }
       ) {
         frontmatter {
-          templateKey
           primary {
+            link {
+              collection
+              slug
+              title
+              url
+            }
+          }
+          secondary {
             link {
               collection
               slug
