@@ -3,5 +3,5 @@
  */
 
 export default function phoneToLink(phoneString = "") {
-  return `${phoneString.replace(/\s+/, "")}`
+  return `${phoneString.replace(/\s+/g, "")}`
 }
