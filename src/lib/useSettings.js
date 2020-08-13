@@ -13,6 +13,23 @@ const useSettings = () => {
           phone
         }
       }
+
+      settings: markdownRemark(
+        fields: { sourceInstanceName: { eq: "settings" } }
+        frontmatter: { templateKey: { eq: "menu" } }
+      ) {
+        frontmatter {
+          templateKey
+          primary {
+            link {
+              collection
+              slug
+              title
+              url
+            }
+          }
+        }
+      }
     }
   `)
 

@@ -111,11 +111,17 @@ collections:
         name: "menu"
         fields:
           - {
-              label: "Primary Items",
-              name: primary,
-              widget: list,
-              field:
-                {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "menu",
+            }
+          - label: "Primary Items"
+            name: "primary"
+            widget: "list"
+            summary: "{{fields.link.title}}"
+            fields:
+              - {
                   label: Link,
                   name: link,
                   widget: link,
@@ -134,14 +140,13 @@ collections:
                         valueField: "slug",
                       },
                     ],
-                },
-            }
-          - {
-              label: "Secondary Items",
-              name: secondary,
-              widget: list,
-              field:
-                {
+                }
+          - label: "Secondary Items"
+            name: "secondary"
+            widget: "list"
+            summary: "{{fields.link.title}}"
+            fields:
+              - {
                   label: Link,
                   name: link,
                   widget: link,
@@ -160,9 +165,7 @@ collections:
                         valueField: "slug",
                       },
                     ],
-                },
-            }
-
+                }
       - file: "src/content/settings/contact.md"
         label: "Contact Details"
         name: "contact"

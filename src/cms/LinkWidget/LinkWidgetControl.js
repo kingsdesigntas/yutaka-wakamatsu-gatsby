@@ -8,7 +8,7 @@ import { Async as AsyncSelect } from "react-select"
 //import { find, isEmpty, last, debounce, get, uniqBy, sortBy } from "lodash"
 import { reactSelectStyles } from "netlify-cms-ui-default"
 import Modal from "react-modal"
-import { Map } from "immutable"
+import { Map, fromJS } from "immutable"
 //import { searchEntries } from "netlify-cms-core/dist/esm/actions/search"
 
 const customStyles = {
@@ -101,6 +101,7 @@ const LinkWidget = memo(
       const parseValue = raw => {
         return Map.isMap(raw) ? raw.toJS() : raw
       }
+      console.log({ value: parseValue(value) })
 
       const [isModalOpen, setIsModalOpen] = React.useState(false)
 
@@ -131,7 +132,16 @@ const LinkWidget = memo(
 
       const handleSubmit = e => {
         e.preventDefault()
-        onChange(formData)
+
+        onChange({
+          slug: formData.slug,
+          collection: formData.collection,
+          url: formData.url,
+          title: formData.title,
+        })
+        //onChange({ ...formData })
+        //onChange(JSON.stringify(formData))
+        //onChange(formData.url ? formData.url : formData.slug, formData)
         setIsModalOpen(false)
       }
 

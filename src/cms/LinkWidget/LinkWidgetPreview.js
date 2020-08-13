@@ -3,9 +3,7 @@ import PropTypes from "prop-types"
 import { WidgetPreviewContainer } from "netlify-cms-ui-default"
 import { Map } from "immutable"
 
-const LinkWidgetPreview = ({ value, ...props }) => {
-  console.log(value, props)
-
+const LinkWidgetPreview = ({ value, entry, ...props }) => {
   if (!value) return <WidgetPreviewContainer></WidgetPreviewContainer>
   return (
     <WidgetPreviewContainer>
