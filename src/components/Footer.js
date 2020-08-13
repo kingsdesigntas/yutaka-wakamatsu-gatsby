@@ -14,8 +14,12 @@ import {
   Stack,
 } from "@chakra-ui/core"
 import Button from "./Button"
+import useSettings from "../lib/useSettings"
+import phoneToLink from "../lib/phoneToLink"
 
 const Footer = () => {
+  const settings = useSettings()
+
   const inputStyles = {
     bg: "blue.700",
     border: "none",
@@ -186,14 +190,8 @@ const Footer = () => {
                         <strong>Email</strong>
                       </td>
                       <td>
-                        <a
-                          href="#"
-                          onClick={e => {
-                            e.preventDefault()
-                            alert("not yet implemented!")
-                          }}
-                        >
-                          email@example.com
+                        <a href={`mailto:${settings?.contact?.email}`}>
+                          {settings?.contact?.email}
                         </a>
                       </td>
                     </tr>
@@ -203,13 +201,13 @@ const Footer = () => {
                       </td>
                       <td>
                         <a
-                          href="#"
+                          href={`tel:${phoneToLink(settings?.contact?.phone)}`}
                           onClick={e => {
                             e.preventDefault()
                             alert("not yet implemented!")
                           }}
                         >
-                          (03) 62 123 456
+                          {settings?.contact?.phone}
                         </a>
                       </td>
                     </tr>
@@ -219,13 +217,12 @@ const Footer = () => {
                       </td>
                       <td>
                         <a
-                          href="#"
-                          onClick={e => {
-                            e.preventDefault()
-                            alert("not yet implemented!")
-                          }}
+                          href={`https://google.com/maps/dir//${encodeURIComponent(
+                            settings?.contact?.address
+                          )}`}
+                          target="_blank"
                         >
-                          1234 Somewhere Rd, Hobart, TAS 7000
+                          {settings?.contact?.address}
                         </a>
                       </td>
                     </tr>
