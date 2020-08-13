@@ -10,10 +10,10 @@ backend:
 media_folder: static/assets
 public_folder: /assets
 collections:
-  - name: "pages"
-    label: "Pages"
+  - name: "template_pages"
+    label: "Templated Pages"
     files:
-      - file: "src/content/pages/index.md"
+      - file: "src/content/template_pages/index.md"
         label: "Home Page"
         name: "index"
         fields:
@@ -88,3 +88,12 @@ collections:
         { label: "Text", name: "text", widget: "text" },
         { label: "Name", name: "name", widget: "string" },
       ]
+  - name: "pages"
+    label: "Pages"
+    create: true
+    folder: "src/content/pages"
+    identifier_field: title
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Description, name: description, widget: text }
+      - { label: Content, name: content, widget: markdown }
