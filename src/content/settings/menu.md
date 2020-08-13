@@ -14,4 +14,9 @@ primary:
       collection: pages
       url: ""
       title: CranioSacral Therapy (CST)
+  - link:
+      slug: index
+      collection: template_pages
+      url: ""
+      title: CST Study Group
 ---
