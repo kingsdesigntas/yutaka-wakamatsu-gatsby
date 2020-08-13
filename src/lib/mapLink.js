@@ -12,11 +12,12 @@ export default function mapLinkToHref(link) {
   if (link.url) {
     url = link.url
   } else if (link.collection && link.slug) {
-    if (link.collection === "pages") url = `/${link.slug}`
+    if (link.collection === "pages" || link.collection === "template_pages")
+      url = `/${link.slug}`
     else url = `${link.collection}/${link.slug}`
   }
 
-  if (link.collection === "pages" && link.slug === "index") {
+  if (link.collection === "template_pages" && link.slug === "index") {
     url = "/"
   }
 
