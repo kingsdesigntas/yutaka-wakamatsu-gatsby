@@ -5,6 +5,7 @@ import SEO from "../components/seo"
 import { Text, Box } from "@chakra-ui/core"
 import Container from "../components/Container"
 import Copy from "../components/Copy"
+import { graphql } from "gatsby"
 
 const PageTemplate = ({ title, description, content, isPreview = false }) => {
   return (
@@ -28,6 +29,9 @@ const PageTemplate = ({ title, description, content, isPreview = false }) => {
         </Box>
       )}
       <Container py={[10, null, 20]}>
+        <Text fontSize="3xl" mb="4">
+          {title}
+        </Text>
         <Copy>{content}</Copy>
       </Container>
     </Layout>
