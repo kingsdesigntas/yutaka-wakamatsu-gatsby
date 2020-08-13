@@ -4,5 +4,9 @@ test_item:
   collection: pages
   url: ""
   title: CranioSacral Therapy (CST)
-primary: []
+primary:
+  - slug: index
+    collection: template_pages
+    url: ""
+    title: CranioSacral Therapy & Remedial Massage
 ---
