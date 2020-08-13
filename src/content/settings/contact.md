@@ -1,5 +1,5 @@
 ---
-templateKey: "contact",
+templateKey: "contact"
 phone: 0400 123 456
 email: email@yutaka.email
 address: |-
