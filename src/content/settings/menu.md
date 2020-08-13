@@ -1,4 +1,5 @@
 ---
+templateKey: menu
 primary:
   - link:
       slug: index
