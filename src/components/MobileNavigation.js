@@ -9,7 +9,7 @@ import mapLink from "../lib/mapLink"
 const MobileNavigation = () => {
   const settings = useSettings()
 
-  const hash = "#mobile-navigation"
+  const hash = "mobile-navigation"
 
   const [isOpen, setIsOpen] = useState(false)
   const isOpenRef = useRef()
@@ -20,13 +20,17 @@ const MobileNavigation = () => {
       if (isOpen) return
       setIsOpen(true)
 
-      window.history.pushState({}, "", hash)
+      window.history.pushState(
+        {},
+        "",
+        `${window.location.href.replace(/\/$/, "")}/#${hash}`
+      )
     },
     [isOpen]
   )
 
   const handlePopState = e => {
-    if (window.location.hash !== hash && isOpenRef.current) {
+    if (window.location.hash !== `#${hash}` && isOpenRef.current) {
       setIsOpen(false)
     }
   }
@@ -38,10 +42,10 @@ const MobileNavigation = () => {
   useEffect(() => {
     document.addEventListener("mobile-nav-open", handleEventOpen)
     window.addEventListener("popstate", handlePopState)
-  }, [handleEventOpen])
+  }, [])
 
   useEffect(() => {
-    if (!isOpen && window.location.hash === hash) {
+    if (!isOpen && window.location.hash === `#${hash}`) {
       window.history.back()
     }
     isOpenRef.current = isOpen
