@@ -16,7 +16,7 @@ import customTheme from "../theme"
 import Footer from "./Footer"
 import MobileNavigation from "./MobileNavigation"
 
-console.log(customTheme)
+//console.log(customTheme)
 
 const Layout = ({ children, isPreview = false }) => {
   return (
