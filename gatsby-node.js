@@ -67,40 +67,19 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
   const { createTypes, createFieldExtension } = actions
 
   const typeDefs = [
-    `type MarkdownRemarkFrontmatterSecondaryLink implements Node {
+    `type MarkdownRemarkFrontmatterPrimaryLink {
       collection: String
       url: String
       title: String
       slug: String
      }`,
-
-    // schema.buildObjectType({
-    //   name: "sanity_category",
-    //   fields: {
-    //     color: { type: "String" },
-    //     color_custom: {
-    //       type: "sanity_categoryColor_custom",
-    //       fields: { hex: "String" },
-    //     },
-    //     description: { type: "String" },
-    //     posts: {
-    //       type: "[sanity_post]",
-    //       resolve: async (source, args, context, info) => {
-    //         const posts = await context.nodeModel.runQuery({
-    //           query: {
-    //             filter: {
-    //               categories: { elemMatch: { id: { eq: source.id } } },
-    //             },
-    //           },
-    //           type: "sanity_post",
-    //         })
-
-    //         return posts && posts.length ? posts : []
-    //       },
-    //     },
-    //   },
-    // }),
+    `type MarkdownRemarkFrontmatterSecondaryLink {
+      collection: String
+      url: String
+      title: String
+      slug: String
+     }`,
   ]
 
-  //createTypes(typeDefs)
+  createTypes(typeDefs)
 }
