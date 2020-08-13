@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core"
-import React, { useRef, useState } from "react"
+import { useRef, useState } from "react"
 import Container from "./Container"
 import {
   Box,
@@ -11,7 +11,6 @@ import {
   FormControl,
   FormLabel,
   Input,
-  TextArea,
   Stack,
 } from "@chakra-ui/core"
 import Button from "./Button"
@@ -80,7 +79,7 @@ const Footer = () => {
 
   return (
     <footer>
-      <Box bg="blue.900" py={[6, , 10]} color="white" textAlign="center">
+      <Box bg="blue.900" py={[6, null, 10]} color="white" textAlign="center">
         <Container>
           <Text
             fontWeight="bold"
@@ -94,7 +93,7 @@ const Footer = () => {
             Request a booking using the form below. I also welcome your feedback
             and questions.
           </Text>
-          <SimpleGrid columns={[1, , 2]} mt="6">
+          <SimpleGrid columns={[1, null, 2]} mt="6">
             <Box textAlign="left">
               {formSent ? (
                 <Text>

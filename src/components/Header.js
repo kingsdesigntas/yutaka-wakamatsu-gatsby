@@ -1,5 +1,5 @@
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
+//import PropTypes from "prop-types"
 import React from "react"
 import { Box, Flex, Stack, Text } from "@chakra-ui/core"
 import Container from "./Container"
@@ -9,8 +9,8 @@ import { customEvent } from "../lib/triggerEvent"
 
 const Header = () => (
   <Box as="header">
-    <Container px={[0, , , 2]}>
-      <Flex justifyContent={[, , , "flex-end"]}>
+    <Container px={[0, null, null, 2]}>
+      <Flex justifyContent={[null, null, null, "flex-end"]}>
         <Stack isInline align="center">
           <Button
             as="a"
@@ -21,7 +21,7 @@ const Header = () => (
               alert("this hasn't been set!")
             }}
             size="sm"
-            py={[2, , 4]}
+            py={[2, null, 4]}
             height="auto"
             fontWeight="bold"
           >
@@ -51,25 +51,25 @@ const Header = () => (
         justifyContent="space-between"
         align="center"
         pt={[3, 3, 3, 0]}
-        pb={[3, , 6]}
+        pb={[3, null, 6]}
       >
         {/* Brand */}
         <Box maxW="sm">
           <Link to="/">
             <Text
-              fontSize={["xl", , "2xl", "4xl"]}
+              fontSize={["xl", null, "2xl", "4xl"]}
               color="blue.500"
               lineHeight="1.1"
             >
               Yutaka Wakamatsu
             </Text>
-            <Text fontSize={["xl", , "2xl", "4xl"]} lineHeight="1.1">
+            <Text fontSize={["xl", null, "2xl", "4xl"]} lineHeight="1.1">
               CranioSacral Therapy & Remedial Massage
             </Text>
           </Link>
         </Box>
         {/* Secondary Nav */}
-        <Box display={["none", , "block"]}>
+        <Box display={["none", null, "block"]}>
           <Stack as="nav" isInline spacing="3">
             <Button as={Link} variant="link" to="/">
               About Yutaka
@@ -84,12 +84,12 @@ const Header = () => (
         </Box>
       </Flex>
     </Container>
-    <Box bg="blue.500" py={[2, , 6]}>
+    <Box bg="blue.500" py={[2, null, 6]}>
       <Container>
         {/* Mobile nav toggle */}
         <Box
           as="button"
-          display={["block", , "none"]}
+          display={["block", null, "none"]}
           color="white"
           onClick={() => customEvent(document, "mobile-nav-open")}
         >
@@ -105,10 +105,10 @@ const Header = () => (
         <Stack
           as="nav"
           isInline
-          spacing={[3, , , 10]}
-          display={["none", , "block"]}
+          spacing={[3, null, null, 10]}
+          display={["none", null, "block"]}
         >
-          <Button variantColor="red" as={Link} to={"/"} px={[2, , , 6]}>
+          <Button variantColor="red" as={Link} to={"/"} px={[2, null, null, 6]}>
             Book now
           </Button>
           <Button
@@ -117,7 +117,7 @@ const Header = () => (
             to="/"
             variantColor="white"
             fontWeight="bold"
-            fontSize={["sm", , , "md"]}
+            fontSize={["sm", null, null, "md"]}
           >
             CranioSacral Therapy (CST)
           </Button>
@@ -127,7 +127,7 @@ const Header = () => (
             to="/"
             variantColor="white"
             fontWeight="bold"
-            fontSize={["sm", , , "md"]}
+            fontSize={["sm", null, null, "md"]}
           >
             CST Study Group
           </Button>
@@ -137,7 +137,7 @@ const Header = () => (
             to="/"
             variantColor="white"
             fontWeight="bold"
-            fontSize={["sm", , , "md"]}
+            fontSize={["sm", null, null, "md"]}
           >
             Remedial Massage
           </Button>
@@ -147,7 +147,7 @@ const Header = () => (
             to="/"
             variantColor="white"
             fontWeight="bold"
-            fontSize={["sm", , , "md"]}
+            fontSize={["sm", null, null, "md"]}
           >
             Still Point Inducer
           </Button>

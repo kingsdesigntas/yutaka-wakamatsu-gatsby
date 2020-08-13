@@ -1,14 +1,14 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core"
-import CMS from "netlify-cms-app"
+//import CMS from "netlify-cms-app"
 import styled from "@emotion/styled"
-import React, { useEffect, forwardRef, memo } from "react"
+import React, { forwardRef, memo } from "react"
 import { Async as AsyncSelect } from "react-select"
-import { FixedSizeList } from "react-window"
-import { find, isEmpty, last, debounce, get, uniqBy, sortBy } from "lodash"
+//import { FixedSizeList } from "react-window"
+//import { find, isEmpty, last, debounce, get, uniqBy, sortBy } from "lodash"
 import { reactSelectStyles } from "netlify-cms-ui-default"
 import Modal from "react-modal"
-import { List, Map, fromJS } from "immutable"
+import { Map } from "immutable"
 //import { searchEntries } from "netlify-cms-core/dist/esm/actions/search"
 
 const customStyles = {
@@ -23,34 +23,6 @@ const customStyles = {
 }
 
 Modal.setAppElement("#nc-root")
-
-const Option = ({ index, style, data }) => (
-  <div style={style}>{data.options[index]}</div>
-)
-
-const MenuList = props => {
-  if (
-    props.isLoading ||
-    props.options.length <= 0 ||
-    !Array.isArray(props.children)
-  ) {
-    return props.children
-  }
-  const rows = props.children
-  const itemSize = 30
-  return (
-    <FixedSizeList
-      style={{ width: "100%" }}
-      width={300}
-      height={Math.min(300, rows.length * itemSize + itemSize / 3)}
-      itemCount={rows.length}
-      itemSize={itemSize}
-      itemData={{ options: rows }}
-    >
-      {Option}
-    </FixedSizeList>
-  )
-}
 
 const FormControl = styled.div``
 const FormLabel = styled.label`

@@ -1,20 +1,15 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useCallback } from "react"
 import PropTypes from "prop-types"
 import IndexPageTemplate from "../../templates/IndexPageTemplate"
 import parseMarkdown from "../../lib/parseMarkdown"
 
 const IndexPagePreview = ({ entry, getAsset }) => {
-  const getEntry = () => entry.getIn(["data"]).toJS()
+  const getEntry = useCallback(() => entry.getIn(["data"]).toJS(), [entry])
   const [data, setData] = useState(getEntry())
 
   console.log({ data })
 
-  useEffect(() => {
-    setData(getEntry())
-    parseMarkdownFields()
-  }, [entry])
-
-  const parseMarkdownFields = async () => {
+  const parseMarkdownFields = useCallback(async () => {
     if (data?.main?.content) {
       const content = await parseMarkdown(data.main.content)
       setData(_data => {
@@ -22,7 +17,16 @@ const IndexPagePreview = ({ entry, getAsset }) => {
         return _data
       })
     }
-  }
+  }, [data])
+
+  const loadData = useCallback(() => {
+    setData(getEntry())
+    parseMarkdownFields()
+  }, [getEntry, parseMarkdownFields])
+
+  useEffect(() => {
+    loadData()
+  }, [loadData])
 
   //image={getAsset(data.image)}
   if (data) {

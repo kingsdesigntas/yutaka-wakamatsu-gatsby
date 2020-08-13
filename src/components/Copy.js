@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core"
-import React from "react"
 import { Box, useTheme } from "@chakra-ui/core"
 
 const Copy = ({ children, ...props }) => {

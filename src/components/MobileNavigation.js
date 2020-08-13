@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react"
+import React, { useEffect, useState, useRef, useCallback } from "react"
 import { Box, Stack, Button, Flex } from "@chakra-ui/core"
 import { Link } from "gatsby"
 import { MdClose } from "react-icons/md"
@@ -10,12 +10,15 @@ const MobileNavigation = () => {
   const isOpenRef = useRef()
   const linksRef = useRef()
 
-  const handleEventOpen = e => {
-    if (isOpen) return
-    setIsOpen(true)
+  const handleEventOpen = useCallback(
+    e => {
+      if (isOpen) return
+      setIsOpen(true)
 
-    window.history.pushState({}, "", hash)
-  }
+      window.history.pushState({}, "", hash)
+    },
+    [isOpen]
+  )
 
   const handlePopState = e => {
     if (window.location.hash !== hash && isOpenRef.current) {
@@ -31,7 +34,7 @@ const MobileNavigation = () => {
   useEffect(() => {
     document.addEventListener("mobile-nav-open", handleEventOpen)
     window.addEventListener("popstate", handlePopState)
-  }, [])
+  }, [handleEventOpen])
 
   useEffect(() => {
     if (!isOpen && window.location.hash === hash) {
@@ -76,7 +79,7 @@ const MobileNavigation = () => {
       </Button>
       <Box overflowY="auto" overflowX="hidden" ref={linksRef}>
         <Stack spacing="4">
-          <Button variantColor="red" as={Link} to={"/"} px={[2, , , 6]}>
+          <Button variantColor="red" as={Link} to={"/"} px={[2, null, null, 6]}>
             Book now
           </Button>
           <Flex mx={-2}>

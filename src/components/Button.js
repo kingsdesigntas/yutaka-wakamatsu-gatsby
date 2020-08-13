@@ -1,4 +1,4 @@
-import { Button as ChakraButton, Box } from "@chakra-ui/core"
+import { Button as ChakraButton } from "@chakra-ui/core"
 import React, { forwardRef } from "react"
 
 const Button = forwardRef(

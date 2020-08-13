@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core"
 
-import React from "react"
+//import React from "react"
 //import "react-responsive-carousel/lib/styles/carousel.min.css" // requires a loader
 import { Carousel } from "react-responsive-carousel"
 import { MdChevronRight, MdChevronLeft } from "react-icons/md"

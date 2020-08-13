@@ -22,14 +22,14 @@ const Section = ({
   return (
     <Box as="section">
       <Container>
-        <Grid templateColumns={["100%", , "2fr 3fr"]} gap="5">
+        <Grid templateColumns={["100%", null, "2fr 3fr"]} gap="5">
           <Box>
             {image && (
               <Box maxW="sm" mx="auto">
                 {image.childImageSharp ? (
                   <Img fluid={image.childImageSharp.fluid} />
                 ) : (
-                  <img src={image.url} />
+                  <img src={image.url} alt={image.alt} />
                 )}
               </Box>
             )}
@@ -128,8 +128,8 @@ const IndexPageTemplate = ({
           { url: "/", title: "More info", variant: "secondary" },
         ]}
       />
-      <Container py={[10, , 20]}>
-        <Grid templateColumns={["100%", , "3fr 2fr", "3fr 1fr"]} gap="5">
+      <Container py={[10, null, 20]}>
+        <Grid templateColumns={["100%", null, "3fr 2fr", "3fr 1fr"]} gap="5">
           <Box>
             <Text fontSize={["2xl", "3xl", "4xl"]} as="h1" mb="3">
               {main.title}
@@ -141,7 +141,7 @@ const IndexPageTemplate = ({
               {main.image.childImageSharp ? (
                 <Img fluid={main.image.childImageSharp.fluid} />
               ) : (
-                <img src={main.image.url} />
+                <img src={main.image.url} alt={main.image.alt} />
               )}
             </Box>
           </Box>
@@ -178,7 +178,11 @@ const IndexPageTemplate = ({
         </Box>
       )}
       {sections?.length && (
-        <Grid gridTemplateColumns="100%" gap={[10, , 20]} py={[10, , 20]}>
+        <Grid
+          gridTemplateColumns="100%"
+          gap={[10, null, 20]}
+          py={[10, null, 20]}
+        >
           {sections.map((section, index) => (
             <Section
               key={index}

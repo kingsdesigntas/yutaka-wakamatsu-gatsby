@@ -1,8 +1,9 @@
 export const customEvent = (el, name, data) => {
+  var event
   if (window.CustomEvent && typeof window.CustomEvent === "function") {
-    var event = new CustomEvent(name, { detail: data })
+    event = new CustomEvent(name, { detail: data })
   } else {
-    var event = document.createEvent("CustomEvent")
+    event = document.createEvent("CustomEvent")
     event.initCustomEvent(name, true, true, data)
   }
 

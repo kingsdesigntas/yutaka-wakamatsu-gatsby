@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 
 import Header from "./Header"
 
-import { Global, css } from "@emotion/core"
+//import { Global, css } from "@emotion/core"
 import { ThemeProvider, CSSReset, LightMode } from "@chakra-ui/core"
 import customTheme from "../theme"
 import Footer from "./Footer"
