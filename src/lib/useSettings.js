@@ -42,6 +42,7 @@ const useSettings = () => {
 
   return {
     contact: data?.contact?.frontmatter ? data.contact.frontmatter : null,
+    menu: data?.menu?.frontmatter ? data.menu.frontmatter : null,
   }
 }
 

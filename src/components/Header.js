@@ -9,6 +9,7 @@ import { customEvent } from "../lib/triggerEvent"
 
 import useSettings from "../lib/useSettings"
 import phoneToLink from "../lib/phoneToLink"
+import mapLink from "../lib/mapLink"
 
 const Header = () => {
   const settings = useSettings()
@@ -73,15 +74,12 @@ const Header = () => {
           {/* Secondary Nav */}
           <Box display={["none", null, "block"]}>
             <Stack as="nav" isInline spacing="3">
-              <Button as={Link} variant="link" to="/">
-                About Yutaka
-              </Button>
-              <Button as={Link} variant="link" to="/">
-                Testimonials
-              </Button>
-              <Button as={Link} variant="link" to="/">
-                Contact
-              </Button>
+              {settings?.menu?.secondary?.length &&
+                settings.menu.secondary.map(({ link }, index) => (
+                  <Button {...mapLink(link)} key={index} variant="link" to="/">
+                    {link.title}
+                  </Button>
+                ))}
             </Stack>
           </Box>
         </Flex>
@@ -118,46 +116,19 @@ const Header = () => {
             >
               Book now
             </Button>
-            <Button
-              variant="link"
-              as={Link}
-              to="/"
-              variantColor="white"
-              fontWeight="bold"
-              fontSize={["sm", null, null, "md"]}
-            >
-              CranioSacral Therapy (CST)
-            </Button>
-            <Button
-              variant="link"
-              as={Link}
-              to="/"
-              variantColor="white"
-              fontWeight="bold"
-              fontSize={["sm", null, null, "md"]}
-            >
-              CST Study Group
-            </Button>
-            <Button
-              variant="link"
-              as={Link}
-              to="/"
-              variantColor="white"
-              fontWeight="bold"
-              fontSize={["sm", null, null, "md"]}
-            >
-              Remedial Massage
-            </Button>
-            <Button
-              variant="link"
-              as={Link}
-              to="/"
-              variantColor="white"
-              fontWeight="bold"
-              fontSize={["sm", null, null, "md"]}
-            >
-              Still Point Inducer
-            </Button>
+            {settings?.menu?.primary?.length &&
+              settings.menu.primary.map(({ link }, index) => (
+                <Button
+                  key={index}
+                  variant="link"
+                  {...mapLink(link)}
+                  variantColor="white"
+                  fontWeight="bold"
+                  fontSize={["sm", null, null, "md"]}
+                >
+                  {link.title}
+                </Button>
+              ))}
           </Stack>
         </Container>
       </Box>
