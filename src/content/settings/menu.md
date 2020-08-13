@@ -15,4 +15,10 @@ primary:
       collection: pages
       url: ""
       title: CranioSacral Therapy (CST)
+secondary:
+  - link:
+      slug: null
+      collection: null
+      url: "#about"
+      title: About Yutaka
 ---
