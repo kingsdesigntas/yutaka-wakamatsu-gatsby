@@ -11,6 +11,11 @@ primary:
       collection: pages
       url: ""
       title: CranioSacral Therapy (CST)
+  - link:
+      slug: remedial-massage
+      collection: pages
+      url: ""
+      title: Remedial Massage
 secondary:
   - link:
       slug: null
