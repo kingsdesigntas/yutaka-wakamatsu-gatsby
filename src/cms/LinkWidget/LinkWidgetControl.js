@@ -152,7 +152,8 @@ const LinkWidget = memo(
           collectionHits.forEach(hit => {
             const collection = collections.find(c => c.name === hit.collection)
             if (!collection) return //This should never happen...
-            const label = hit.data[collection.displayField]
+
+            const label = hit.data[collection.displayField] || hit.label
 
             const value = `${hit.collection}/${hit[collection.valueField]}`
             acc.push({ label, value, data: hit })
