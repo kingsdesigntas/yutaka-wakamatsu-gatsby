@@ -9,4 +9,6 @@ content: >-
 
 
   If you are interested in CranioSacral Therapy as a practitioner or you would like to join his Study Group, please feel free to get in touch! (Prerequisite: Successful completion of Upledger CS1 course)
+heroimage: /assets/foto_055.jpg
+image: /assets/foto_099.jpg
 ---
