@@ -27,4 +27,9 @@ secondary:
       collection: null
       url: "#about"
       title: About Yutaka
+  - link:
+      slug: null
+      collection: null
+      url: "#contact"
+      title: Contact
 ---
