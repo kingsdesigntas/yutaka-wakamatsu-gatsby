@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core"
-import { useRef, useState } from "react"
+import { useRef, useState, useEffect } from "react"
 import Container from "./Container"
 import {
   Box,
@@ -16,6 +16,7 @@ import {
 import Button from "./Button"
 import useSettings from "../lib/useSettings"
 import phoneToLink from "../lib/phoneToLink"
+import { MdClose } from "react-icons/md"
 
 const Footer = () => {
   const settings = useSettings()
@@ -30,6 +31,8 @@ const Footer = () => {
   const [formSending, setFormSending] = useState()
   const [formSent, setFormSent] = useState(null)
   const [formError, setFormError] = useState(null)
+
+  const [isOpen, setIsOpen] = useState(false)
 
   const onFormSubmit = async e => {
     e.preventDefault()
@@ -80,10 +83,43 @@ const Footer = () => {
       setFormError("Something went wrong. Your message was not sent.")
     }
   }
+  const handlePopState = e => {
+    if (window.location.hash === "#contact") {
+      setIsOpen(true)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("popstate", handlePopState)
+  }, [])
 
   return (
     <footer>
-      <Box bg="blue.900" py={[6, null, 10]} color="white" textAlign="center">
+      <Box
+        bg="blue.900"
+        py={[6, null, 10]}
+        color="white"
+        textAlign="center"
+        style={{
+          position: isOpen ? "fixed" : null,
+          left: 0,
+          top: 0,
+          width: "100%",
+          height: "100%",
+        }}
+      >
+        {isOpen && (
+          <Box
+            as={"button"}
+            onClick={() => setIsOpen(false)}
+            fontSize="4xl"
+            position="absolute"
+            right="1rem"
+            top="1rem"
+          >
+            <MdClose />
+          </Box>
+        )}
         <Container>
           <Text
             fontWeight="bold"
