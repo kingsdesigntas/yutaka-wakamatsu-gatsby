@@ -84,7 +84,10 @@ const Footer = () => {
     }
   }
   const handlePopState = e => {
-    if (window.location.hash === "#contact") {
+    if (
+      window.location.hash === "#contact" ||
+      window.location.hash === "#book-now"
+    ) {
       setIsOpen(true)
     }
   }

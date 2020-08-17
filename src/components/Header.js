@@ -110,8 +110,8 @@ const Header = () => {
           >
             <Button
               variantColor="red"
-              as={Link}
-              to={"/"}
+              as={"a"}
+              href="#book-now"
               px={[2, null, null, 6]}
             >
               Book now

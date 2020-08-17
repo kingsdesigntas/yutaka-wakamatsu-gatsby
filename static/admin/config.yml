@@ -171,8 +171,8 @@ collections:
           required: false,
         },
         { label: Content, name: content, widget: markdown },
-        { label: Hero Image, name: heroimage, widget: image },
-        { label: Image, name: image, widget: image },
+        { label: Hero Image, name: heroimage, widget: image, required: false },
+        { label: Image, name: image, widget: image, required: false },
       ]
   - name: "settings"
     label: "Settings"

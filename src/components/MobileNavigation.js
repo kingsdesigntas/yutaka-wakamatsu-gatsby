@@ -87,7 +87,12 @@ const MobileNavigation = () => {
       </Button>
       <Box overflowY="auto" overflowX="hidden" ref={linksRef}>
         <Stack spacing="4">
-          <Button variantColor="red" as={Link} to={"/"} px={[2, null, null, 6]}>
+          <Button
+            variantColor="red"
+            as={"a"}
+            href="#book-now"
+            px={[2, null, null, 6]}
+          >
             Book now
           </Button>
           <Flex mx={-2}>
