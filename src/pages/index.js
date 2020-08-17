@@ -52,6 +52,12 @@ export const query = graphql`
               }
             }
           }
+          actions {
+            title
+            url
+            collection
+            slug
+          }
         }
         main {
           title

@@ -98,10 +98,7 @@ const IndexPageTemplate = ({
         title={hero.title}
         text={hero.text}
         backgroundImage={hero.image}
-        actions={[
-          { url: "/", title: "Book now" },
-          { url: "/", title: "More info", variant: "secondary" },
-        ]}
+        actions={hero.actions}
       />
       <Container py={[10, null, 20]}>
         <Grid templateColumns={["100%", null, "3fr 2fr", "3fr 1fr"]} gap="5">

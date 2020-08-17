@@ -39,6 +39,32 @@ collections:
                   { label: Title, name: title, widget: string },
                   { label: Text, name: text, widget: text },
                   { label: Image, name: image, widget: image },
+                  {
+                    label: Actions,
+                    name: actions,
+                    widget: list,
+                    field:
+                      {
+                        label: Link,
+                        name: link,
+                        widget: link,
+                        collections:
+                          [
+                            {
+                              name: "template_pages",
+                              searchFields: ["title"],
+                              displayField: "title",
+                              valueField: "slug",
+                            },
+                            {
+                              name: "pages",
+                              searchFields: ["title"],
+                              displayField: "title",
+                              valueField: "slug",
+                            },
+                          ],
+                      },
+                  },
                 ],
               required: false,
             }
@@ -129,6 +155,8 @@ collections:
       - { label: Title, name: title, widget: string }
       - { label: Description, name: description, widget: text, required: false }
       - { label: Content, name: content, widget: markdown }
+      - { label: Hero Image, name: heroimage, widget: image },
+      - { label: Image, name: image, widget: image}
   - name: "settings"
     label: "Settings"
     files:

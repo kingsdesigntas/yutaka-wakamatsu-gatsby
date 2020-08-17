@@ -9,6 +9,8 @@ const PageQueryTemplate = ({ data }) => {
       description={data?.page?.frontmatter?.description}
       title={data?.page?.frontmatter?.title}
       content={data?.page?.frontmatter?.content}
+      heroimage={data?.page?.frontmatter?.heroimage}
+      image={data?.page?.frontmatter?.image}
     />
   )
 }
@@ -24,6 +26,20 @@ export const query = graphql`
         content
         description
         title
+        heroimage {
+          childImageSharp {
+            fluid(maxWidth: 2000) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        image {
+          childImageSharp {
+            fluid(maxWidth: 350) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
