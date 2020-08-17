@@ -23,6 +23,11 @@ primary:
       title: Still Point Inducer
 secondary:
   - link:
+      slug: testimonials
+      collection: template_pages
+      url: ""
+      title: Testimonials
+  - link:
       slug: null
       collection: null
       url: "#about"
