@@ -42,6 +42,11 @@ const MobileNavigation = () => {
   useEffect(() => {
     document.addEventListener("mobile-nav-open", handleEventOpen)
     window.addEventListener("popstate", handlePopState)
+
+    return () => {
+      document.removeEventListener("mobile-nav-open", handleEventOpen)
+      window.removeEventListener("popstate", handlePopState)
+    }
   }, [])
 
   useEffect(() => {
