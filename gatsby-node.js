@@ -87,10 +87,10 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       title: String
       slug: String
      }`,
-    `type MarkdownRemarkFrontmatter {
-       image: File
-       heroimage: File
-     }`,
+    // `type MarkdownRemarkFrontmatter {
+    //    image: File
+    //    heroimage: File
+    //  }`,
     `type MarkdownRemarkFrontmatterSectionsActions {
       title: String
       url: String
