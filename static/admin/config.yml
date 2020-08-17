@@ -92,6 +92,24 @@ collections:
                   },
                 ],
             }
+      - file: "src/content/template_pages/testimonials.md"
+        label: "Testimonials Page"
+        name: "testimonials"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "testimonials-page",
+            }
+          - { label: Title, name: title, widget: string }
+          - {
+              label: Description,
+              name: description,
+              widget: text,
+              required: false,
+            }
+          - { label: Content, name: content, widget: md, required: false }
   - name: "testimonials"
     label: "Testimonials"
     create: true

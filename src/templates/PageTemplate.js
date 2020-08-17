@@ -5,7 +5,6 @@ import SEO from "../components/seo"
 import { Text, Box } from "@chakra-ui/core"
 import Container from "../components/Container"
 import Copy from "../components/Copy"
-import { graphql } from "gatsby"
 
 const PageTemplate = ({ title, description, content, isPreview = false }) => {
   return (
