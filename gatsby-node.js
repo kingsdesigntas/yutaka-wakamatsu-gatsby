@@ -63,6 +63,10 @@ exports.onCreateNode = async ({ node, actions, getNode }) => {
         node.frontmatter.main.content
       )
     }
+
+    if (node.frontmatter && node.frontmatter.content) {
+      node.frontmatter.content = await parseMarkdown(node.frontmatter.content)
+    }
   }
 }
 
@@ -83,6 +87,21 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       title: String
       slug: String
      }`,
+    `type MarkdownRemarkFrontmatter {
+       image: File
+       heroimage: File
+     }`,
+    `type MarkdownRemarkFrontmatterSectionsActions {
+      title: String
+      url: String
+      collection: String
+      slug: String
+    }`,
+    `type MarkdownRemarkFrontmatterHero {
+      actions: [MarkdownRemarkFrontmatterSectionsActions]
+      text: String
+      title: String
+    }`,
   ]
 
   createTypes(typeDefs)

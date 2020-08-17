@@ -48,13 +48,15 @@ const PageTemplate = ({
             <Copy dangerouslySetInnerHTML={{ __html: content }} />
           </Box>
           <Box>
-            <Box maxW="sm" mx="auto">
-              {image.childImageSharp ? (
-                <Img fluid={image.childImageSharp.fluid} />
-              ) : (
-                <img src={image.url} alt={image.alt} />
-              )}
-            </Box>
+            {image && (
+              <Box maxW="sm" mx="auto">
+                {image?.childImageSharp ? (
+                  <Img fluid={image.childImageSharp.fluid} />
+                ) : (
+                  <img src={image.url} alt={image.alt} />
+                )}
+              </Box>
+            )}
           </Box>
         </Grid>
       </Container>

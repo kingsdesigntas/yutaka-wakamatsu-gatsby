@@ -152,11 +152,18 @@ collections:
     folder: "src/content/pages"
     identifier_field: title
     fields:
-      - { label: Title, name: title, widget: string }
-      - { label: Description, name: description, widget: text, required: false }
-      - { label: Content, name: content, widget: markdown }
-      - { label: Hero Image, name: heroimage, widget: image },
-      - { label: Image, name: image, widget: image}
+      [
+        { label: Title, name: title, widget: string },
+        {
+          label: Description,
+          name: description,
+          widget: text,
+          required: false,
+        },
+        { label: Content, name: content, widget: markdown },
+        { label: Hero Image, name: heroimage, widget: image },
+        { label: Image, name: image, widget: image },
+      ]
   - name: "settings"
     label: "Settings"
     files:
