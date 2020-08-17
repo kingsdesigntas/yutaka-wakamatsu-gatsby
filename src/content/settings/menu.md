@@ -28,9 +28,9 @@ secondary:
       url: ""
       title: Testimonials
   - link:
-      slug: null
-      collection: null
-      url: "#about"
+      slug: about-yutaka
+      collection: pages
+      url: ""
       title: About Yutaka
   - link:
       slug: null
