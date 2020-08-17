@@ -50,7 +50,7 @@ const Hero = ({ backgroundImage, title, text = null, actions = [] }) => {
                 )}
               </Stack>
             </Box>
-            {actions?.length && (
+            {!!actions?.length && (
               <Box pt="6">
                 <Stack isInline spacing="5">
                   {actions.map((action, index) => (

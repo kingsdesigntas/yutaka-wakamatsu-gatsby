@@ -146,6 +146,16 @@ collections:
         { label: "Text", name: "text", widget: "text" },
         { label: "Name", name: "name", widget: "string" },
       ]
+  - name: "homepage_testimonials"
+    label: "Highlight Testimonials"
+    create: true
+    folder: "src/content/homepage_testimonials"
+    identifier_field: name
+    fields:
+      [
+        { label: "Text", name: "text", widget: "text" },
+        { label: "Name", name: "name", widget: "string" },
+      ]
   - name: "pages"
     label: "Pages"
     create: true

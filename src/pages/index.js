@@ -91,7 +91,9 @@ export const query = graphql`
     }
 
     testimonials: allMarkdownRemark(
-      filter: { fields: { sourceInstanceName: { eq: "testimonials" } } }
+      filter: {
+        fields: { sourceInstanceName: { eq: "homepage_testimonials" } }
+      }
     ) {
       edges {
         node {

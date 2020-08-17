@@ -45,6 +45,13 @@ module.exports = {
         name: "testimonials",
       },
     },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/content/homepage_testimonials`,
+        name: "homepage_testimonials",
+      },
+    },
     // {
     //   resolve: "gatsby-source-filesystem",
     //   options: {
