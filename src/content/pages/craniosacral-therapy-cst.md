@@ -17,7 +17,7 @@ content: >-
   CranioSacral Therapy was developed by Dr. John E. Upledger, D.O., an osteopathic physician and researcher at the Michigan State University in the early 1970s. He established the Upledger Institute in Florida in 1985; now his CranioSacral Therapy techniques and research are being recognised and and widely incorporated in Remedial Massage Therapy, Physiotherapy, Chiropractic, Osteopathic and many other therapies all over the world.
 
 
-  #### What should I expect?
+  ### What should I expect?
 
 
   For this treatment, you will lie down, fully clothed, on the clinic table and make yourself comfortable. The therapist first conducts a whole body evaluation to identify any restriction within your internal body system. The therapist touches your body lightly to sense connectivity of your tissues. During the treatment it is not uncommon for clients to become deeply relaxed, even fall asleep. As the therapist conducts the treatment, you may feel a sensation of heat or warmth and a gentle pulse from the restricted areas of your craniosacral system. The therapy may also evoke sensations that recall prior injuries or events from the past. Some clients experience a strong emotional response during or after treatment. Everybody is different and each person’s experience is unique to them.
@@ -26,7 +26,7 @@ content: >-
   After the treatment, you may feel invigorated and full of energy or a little dozy or tired, or even a little emotional. People often report that they sleepheavily after the treatment or even that they feel worse for 24 hours or so. In order for change to occur sometimes discomfort is felt. The healing process of change often continues for many days or longer after the treatment, as the body adapts to the subtle changes that have been made. 
 
 
-  #### How many sessions will I need for treatment?
+  ### How many sessions will I need for treatment?
 
 
   The extent of treatment you require will depend on your reason for seeking treatment and how long you have suffered with your condition. Generally, the longer you have had a condition, the more treatment you require. This is because your body has had to develop coping strategies for dealing with the problem, causing it to become multifaceted.
@@ -35,7 +35,7 @@ content: >-
   I usually recommend at least three sessions to release tension patterns, restrictions or affect the functioning of all body system. After the series of sessions, I review the treatment plan. If I feel progress is not being made, I will suggest alternative treatments or refer you to another specialist.
 
 
-  #### What conditions can CST help?
+  ### What conditions can CST help?
 
 
   CranioSacral Therapy stimulates the body’s natural healing processes and is effective for a wide range of conditions associated with a full spectrum of pain, illness, trauma and dysfunction, including:
