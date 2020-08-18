@@ -27,4 +27,7 @@ content: >-
 
 
   Yutaka Wakamatsu
+
+
+  ![Upledger CST Certified](/assets/cst-logo.jpg)
 ---
