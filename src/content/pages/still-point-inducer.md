@@ -13,20 +13,15 @@ content: >-
   Benefits:
 
 
-  Reduce stress and increase vitality
+  * Reduce stress and increase vitality
 
+    Relieve headaches and migraines
 
-  Relieve headaches and migraines
+    Ease chronic musculoskeletal pain
 
+    Enhance immune system efficiency
 
-  Ease chronic musculoskeletal pain
-
-
-  Enhance immune system efficiency
-
-
-  Facilitate your body’s self-correcting abilities
-
+    Facilitate your body’s self-correcting abilities
 
   You can purchase Still Point Inducer directly from Yutaka’s clinic in the Massage Centre of Hobart or by post. (Product fee $40.00 plus postage).
 ---
