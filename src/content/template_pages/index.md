@@ -20,6 +20,9 @@ hero:
         collection: pages
         url: ""
         title: More info
+  - title: Hero slide 2
+    text: This is slide 2
+    image: /assets/foto_008.jpg
 main:
   title: Hobart CranioSacral & Remedial Massage
   content: >-
