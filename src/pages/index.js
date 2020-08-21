@@ -5,7 +5,7 @@ import { graphql } from "gatsby"
 const IndexPage = ({ data }) => {
   const hero = data?.indexPage?.frontmatter?.hero
     ? data.indexPage.frontmatter.hero
-    : {}
+    : []
 
   const main = data?.indexPage?.frontmatter?.main
     ? data.indexPage.frontmatter.main

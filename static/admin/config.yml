@@ -49,6 +49,7 @@ collections:
                         label: Link,
                         name: link,
                         widget: link,
+                        required: false,
                         collections:
                           [
                             {
@@ -99,6 +100,7 @@ collections:
                         label: Link,
                         name: link,
                         widget: link,
+                        required: false,
                         collections:
                           [
                             {
@@ -196,6 +198,7 @@ collections:
                   label: Link,
                   name: link,
                   widget: link,
+                  required: false,
                   collections:
                     [
                       {
@@ -221,6 +224,7 @@ collections:
                   label: Link,
                   name: link,
                   widget: link,
+                  required: false,
                   collections:
                     [
                       {

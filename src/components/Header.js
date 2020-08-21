@@ -6,6 +6,7 @@ import Container from "./Container"
 import Button from "./Button"
 import { MdMenu } from "react-icons/md"
 import { customEvent } from "../lib/triggerEvent"
+import Img from "gatsby-image"
 
 import useSettings from "../lib/useSettings"
 import phoneToLink from "../lib/phoneToLink"
@@ -16,8 +17,21 @@ const Header = () => {
 
   const data = useStaticQuery(graphql`
     query HeaderQuery {
-      file(sourceInstanceName: { eq: "images" }, name: { eq: "cst_logo.jpg" }) {
-        name
+      cst_logo: file(
+        sourceInstanceName: { eq: "uploads" }
+        name: { eq: "cst_logo" }
+      ) {
+        childImageSharp {
+          fluid(maxWidth: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+
+      massage_mytotherapy_logo: file(
+        sourceInstanceName: { eq: "uploads" }
+        name: { eq: "massage_mytotherapy_logo" }
+      ) {
         childImageSharp {
           fluid(maxWidth: 100) {
             ...GatsbyImageSharpFluid
@@ -26,6 +40,8 @@ const Header = () => {
       }
     }
   `)
+
+  console.log(data)
 
   return (
     <Box as="header">
@@ -85,6 +101,21 @@ const Header = () => {
               </Text>
             </Link>
           </Box>
+          {/* Logos */}
+          <Flex maxW="sm" display={["none", null, null, "flex"]}>
+            {data?.cst_logo?.childImageSharp?.fluid && (
+              <Box width="6rem" px="2">
+                <Img fluid={data.cst_logo.childImageSharp.fluid} />
+              </Box>
+            )}
+            {data?.massage_mytotherapy_logo?.childImageSharp?.fluid && (
+              <Box width="6rem" px="2">
+                <Img
+                  fluid={data.massage_mytotherapy_logo.childImageSharp.fluid}
+                />
+              </Box>
+            )}
+          </Flex>
           {/* Secondary Nav */}
           <Box display={["none", null, "block"]}>
             <Stack as="nav" isInline spacing="3">

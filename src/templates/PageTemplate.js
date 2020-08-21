@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 import { Text, Box, Grid } from "@chakra-ui/core"
 import Container from "../components/Container"
 import Copy from "../components/Copy"
-import Hero from "../components/Hero"
+import { HeroSingle } from "../components/Hero"
 import Img from "gatsby-image"
 
 const PageTemplate = ({
@@ -36,7 +36,7 @@ const PageTemplate = ({
           </Box>
         </Box>
       )}
-      {heroimage && <Hero title={title} backgroundImage={heroimage} />}
+      {heroimage && <HeroSingle title={title} image={heroimage} />}
       <Container py={[10, null, 20]}>
         <Grid templateColumns={["100%", null, "3fr 2fr", "3fr 1fr"]} gap="5">
           <Box>

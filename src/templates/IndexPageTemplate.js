@@ -66,7 +66,7 @@ const Section = ({
 }
 
 const IndexPageTemplate = ({
-  hero,
+  hero = [],
   title,
   description,
   main,
@@ -94,12 +94,7 @@ const IndexPageTemplate = ({
           </Box>
         </Box>
       )}
-      <Hero
-        title={hero.title}
-        text={hero.text}
-        backgroundImage={hero.image}
-        actions={hero.actions}
-      />
+      <Hero slides={hero} />
       <Container py={[10, null, 20]}>
         <Grid templateColumns={["100%", null, "3fr 2fr", "3fr 1fr"]} gap="5">
           <Box>

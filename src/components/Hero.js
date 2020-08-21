@@ -6,15 +6,33 @@ import { Link } from "gatsby"
 import Button from "./Button"
 
 import { Carousel } from "react-responsive-carousel"
+import mapLink from "../lib/mapLink"
 
 const HeroCarousel = ({ slides }) => {
   return (
     <Carousel
       showThumbs={false}
       showStatus={false}
-      showIndicators={false}
+      showIndicators={true}
       swipeable={true}
       autoPlay={true}
+      renderArrowNext={() => null}
+      renderArrowPrev={() => null}
+      renderIndicator={(onClick, isActive) => (
+        <li>
+          <Box
+            display="block"
+            as="button"
+            onClick={onClick}
+            aria-label="Go to this slide"
+            rounded="full"
+            width="1rem"
+            height="1rem"
+            bg="white"
+            opacity={isActive ? 1 : 0.5}
+          />
+        </li>
+      )}
       css={css`
         outline: none;
         .carousel {
@@ -59,23 +77,39 @@ const HeroCarousel = ({ slides }) => {
             }
           }
         }
+        .control-dots {
+          position: absolute;
+          bottom: 3rem;
+          right: 1rem;
+          display: flex;
+          list-style: none;
+          li {
+            padding-left: 0.25rem;
+            padding-right: 0.25rem;
+          }
+        }
       `}
     >
       {slides.map((slide, index) => (
-        <HeroSingle key={index} {...slide} />
+        <HeroSingle key={index} {...slide} isCarousel={true} />
       ))}
     </Carousel>
   )
 }
 
 export const HeroSingle = ({
-  backgroundImage,
+  image,
   title,
   text = null,
   actions = [],
+  isCarousel = false,
 }) => {
   return (
-    <Box position="relative" py={[null, null, "32"]}>
+    <Box
+      position="relative"
+      py={[null, null, "32"]}
+      height={isCarousel ? "100%" : "auto"}
+    >
       {/* Background */}
       <Box
         position={["relative", null, "absolute"]}
@@ -84,9 +118,9 @@ export const HeroSingle = ({
         w="100%"
         h={["200px", null, "100%"]}
         backgroundImage={`url(${
-          backgroundImage?.childImageSharp
-            ? backgroundImage?.childImageSharp?.fluid?.src
-            : backgroundImage?.url
+          image?.childImageSharp
+            ? image?.childImageSharp?.fluid?.src
+            : image?.url
         })`}
         backgroundSize="cover"
         backgroundPosition="center center"
@@ -121,19 +155,19 @@ export const HeroSingle = ({
             {!!actions?.length && (
               <Box pt="6">
                 <Stack isInline spacing="5">
-                  {actions.map((action, index) => (
-                    <Button
-                      key={index}
-                      as={Link}
-                      to={action.url}
-                      px="6"
-                      variantColor={
-                        action.variant === "secondary" ? "blue" : "red"
-                      }
-                    >
-                      {action.title}
-                    </Button>
-                  ))}
+                  {actions.map((action, index) => {
+                    const linkProps = mapLink(action)
+                    return (
+                      <Button
+                        key={index}
+                        {...linkProps}
+                        px="6"
+                        variantColor={index === 0 ? "red" : "blue"}
+                      >
+                        {action.title}
+                      </Button>
+                    )
+                  })}
                 </Stack>
               </Box>
             )}
