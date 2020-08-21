@@ -2,7 +2,24 @@
 templateKey: index-page
 title: CranioSacral Therapy & Remedial Massage
 description: This is the SEO description
-
+hero:
+  - title: What is CranioSacral Therapy (CST)?
+    text: >-
+      CranioSacral Therapy is a gentle touch and non-invasive soft tissue
+          therapy used in the treatment of a number of different complaints. It is
+          also a powerful therapy that affects the central nervous system to assist in
+          improving function throughout the body system. It is suitable for all ages,
+          from infants to the elderly. 
+    image: /assets/foto_099.jpg
+    actions:
+      - slug: null
+        collection: null
+        url: "#book-now"
+        title: Book now
+      - slug: craniosacral-therapy-cst
+        collection: pages
+        url: ""
+        title: More info
 main:
   title: Hobart CranioSacral & Remedial Massage
   content: >-
@@ -22,17 +39,16 @@ sections:
       CranioSacral Therapy is a gentle touch and non-invasive soft tissue therapy used in the treatment of a number of different complaints. It is also a powerful therapy that affects the central nervous system to assist in improving function throughout the body system. It is suitable for all ages, from infants to the elderly.
     image: /assets/foto_099.jpg
     actions:
-      - slug: null
-        collection: null
-        url: "#book-now"
-        title: Book now
       - slug: craniosacral-therapy-cst
         collection: pages
         url: ""
         title: More info
+      - slug: null
+        collection: null
+        url: "#book-now"
+        title: Book now
   - title: Remedial Massage
-    content:
-      Remedial massage is a manual manipulation of soft tissue which aims to
+    content: Remedial massage is a manual manipulation of soft tissue which aims to
       treat muscles that are damaged, knotted, tense or immobile. It is useful
       for a number of body dysfunctions that affect the muscles, tendons and
       bones.
