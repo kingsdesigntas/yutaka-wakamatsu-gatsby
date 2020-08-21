@@ -72,9 +72,6 @@ const HeroCarousel = ({ slides }) => {
             text-align: center;
             flex-direction: column;
             flex-flow: column;
-            & > * {
-              pointer-events: none;
-            }
           }
         }
         .control-dots {
@@ -128,7 +125,7 @@ export const HeroSingle = ({
         backgroundPosition="center center"
         flexGrow="1"
       ></Box>
-      <Container position="relative" px={[0, null, 2]} minWidth="100%">
+      <Container position="relative" px={[0, null, 2]} width="100%">
         <Flex align="center" maxWidth={["100%", null, "50%"]}>
           <Box
             bg={["blue.500", null, "transparent"]}

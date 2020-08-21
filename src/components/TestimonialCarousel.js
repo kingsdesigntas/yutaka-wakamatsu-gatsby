@@ -83,9 +83,6 @@ const TestimonialCarousel = ({ children }) => {
             text-align: center;
             flex-direction: column;
             flex-flow: column;
-            & > * {
-              pointer-events: none;
-            }
           }
         }
       `}

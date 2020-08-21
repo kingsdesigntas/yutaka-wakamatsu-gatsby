@@ -78,7 +78,10 @@ const Header = () => {
                 whiteSpace="normal"
                 wordBreak="break-word"
               >
-                Email {settings?.contact?.email}
+                Email{" "}
+                <Text as="span" display={["none", null, "inline"]}>
+                  {settings?.contact?.email}
+                </Text>
               </Button>
             </Box>
           </Stack>
