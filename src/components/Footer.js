@@ -17,6 +17,7 @@ import Button from "./Button"
 import useSettings from "../lib/useSettings"
 import phoneToLink from "../lib/phoneToLink"
 import { MdClose } from "react-icons/md"
+import { FaFacebook } from "react-icons/fa"
 
 const Footer = () => {
   const settings = useSettings()
@@ -217,7 +218,7 @@ const Footer = () => {
               )}
             </Box>
             <Box>
-              <Box py="10" textAlign="left" maxW="xs" mx="auto">
+              <Box my="10" textAlign="left" maxW="xs" mx="auto">
                 <table
                   css={css`
                     td {
@@ -244,10 +245,6 @@ const Footer = () => {
                       <td>
                         <a
                           href={`tel:${phoneToLink(settings?.contact?.phone)}`}
-                          onClick={e => {
-                            e.preventDefault()
-                            alert("not yet implemented!")
-                          }}
                         >
                           {settings?.contact?.phone}
                         </a>
@@ -270,6 +267,17 @@ const Footer = () => {
                     </tr>
                   </tbody>
                 </table>
+              </Box>
+              <Box my="10" textAlign="left" maxW="xs" mx="auto">
+                <Text
+                  as="a"
+                  href="https://facebook.com/yutakamassagecst"
+                  rel="nofollow noreferrer"
+                  target="_blank"
+                  fontSize="2xl"
+                >
+                  <FaFacebook />
+                </Text>
               </Box>
             </Box>
           </SimpleGrid>

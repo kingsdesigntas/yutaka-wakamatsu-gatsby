@@ -52,13 +52,13 @@ module.exports = {
         name: "homepage_testimonials",
       },
     },
-    // {
-    //   resolve: "gatsby-source-filesystem",
-    //   options: {
-    //     path: `${__dirname}/src/images`,
-    //     name: "images",
-    //   },
-    // },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/images`,
+        name: "images",
+      },
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {

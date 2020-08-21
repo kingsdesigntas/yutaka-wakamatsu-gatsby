@@ -1,4 +1,4 @@
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 //import PropTypes from "prop-types"
 import React from "react"
 import { Box, Flex, Stack, Text } from "@chakra-ui/core"
@@ -13,6 +13,19 @@ import mapLink from "../lib/mapLink"
 
 const Header = () => {
   const settings = useSettings()
+
+  const data = useStaticQuery(graphql`
+    query HeaderQuery {
+      file(sourceInstanceName: { eq: "images" }, name: { eq: "cst_logo.jpg" }) {
+        name
+        childImageSharp {
+          fluid(maxWidth: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
 
   return (
     <Box as="header">
@@ -60,14 +73,15 @@ const Header = () => {
           <Box maxW="sm">
             <Link to="/">
               <Text
-                fontSize={["xl", null, "2xl", "4xl"]}
+                fontSize={["xl", null, "2xl", "3xl"]}
                 color="blue.500"
                 lineHeight="1.1"
+                fontWeight="bold"
               >
                 Yutaka Wakamatsu
               </Text>
-              <Text fontSize={["xl", null, "2xl", "4xl"]} lineHeight="1.1">
-                CranioSacral Therapy & Remedial Massage
+              <Text fontSize={["xl", null, "2xl", "3xl"]} lineHeight="1.1">
+                Hobart CranioSacral &amp; Remedial Massage
               </Text>
             </Link>
           </Box>

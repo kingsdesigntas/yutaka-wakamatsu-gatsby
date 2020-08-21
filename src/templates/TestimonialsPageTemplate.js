@@ -51,9 +51,9 @@ const TestimonialsPageTemplate = ({
                 Testimonials
               </Text>
             ) : (
-              <TestimonialCarousel>
+              <Box>
                 {testimonials.map(({ name, text }, index) => (
-                  <Box pb="4" key={index}>
+                  <Box pb="4" mb="20" key={index}>
                     <Text fontSize="lg">
                       <Text as={"span"} display="inline-block" fontSize="2xl">
                         <MdFormatQuote />
@@ -68,7 +68,7 @@ const TestimonialsPageTemplate = ({
                     </Text>
                   </Box>
                 ))}
-              </TestimonialCarousel>
+              </Box>
             )}
           </Box>
         </Box>
