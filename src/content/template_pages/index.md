@@ -55,4 +55,9 @@ sections:
       for a number of body dysfunctions that affect the muscles, tendons and
       bones.
     image: /assets/foto_011.jpg
+    actions:
+      - slug: remedial-massage
+        collection: pages
+        url: ""
+        title: More about remedial massage
 ---
