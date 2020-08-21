@@ -19,41 +19,34 @@ content: >-
   **The Benefits of Remedial Massage**
 
 
-  Reduced muscle tension
+  * Reduced muscle tension
 
+  * Improve circulation
 
-  Improve circulation
+  * Stimulation of the lymphatic system
 
+  * Reduction of stress hormones
 
-  Stimulation of the lymphatic system
+  * Relaxation
 
+  * Increased joint mobility and flexibility
 
-  Reduction of stress hormones
+  * Improved skin tone
 
+  * Improved recovery of soft tissues injuries
 
-  Relaxation
+  * Heightened mental alertness
 
+  * Reduced anxiety and depression
 
-  Increased joint mobility and flexibility
+  * Conditioning for your pre/post sport events
 
-
-  Improved skin tone
-
-
-  Improved recovery of soft tissues injuries
-
-
-  Heightened mental alertness
-
-
-  Reduced anxiety and depression
-
-
-  Conditioning for your pre/post sport events
-
+    ![Remedial Massage by Yutaka Wakamatsu](/assets/foto_009.jpg)
 
   **Combination of Remedial Massage and CranioSacral Therapy**
 
 
   Yutaka also offers a combination of Remedial Massage and CranioSacral Therapy. For instance, you receive his Remedial Massage to release connective tissue (muscle, fascia, ligament, tendon) and then experience CranioSacral Therapy to enhance your CranioSacral System to tune up your whole body. The dual therapy approach works very well synergistically, to treat both localised tissues by Remedial Massage and treat root causes of the condition by CranioSacral Therapy at once.
+heroimage: /assets/foto_008.jpg
+image: /assets/foto_011.jpg
 ---
