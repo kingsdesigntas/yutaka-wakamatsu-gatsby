@@ -24,4 +24,6 @@ content: >-
     Facilitate your body’s self-correcting abilities
 
   You can purchase Still Point Inducer directly from Yutaka’s clinic in the Massage Centre of Hobart or by post. (Product fee $40.00 plus postage).
+heroimage: /assets/foto_111.jpg
+image: /assets/foto_110.jpg
 ---
