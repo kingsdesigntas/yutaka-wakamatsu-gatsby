@@ -233,9 +233,14 @@ const Footer = () => {
                         <strong>Email</strong>
                       </td>
                       <td>
-                        <a href={`mailto:${settings?.contact?.email}`}>
+                        <Text
+                          as="a"
+                          href={`mailto:${settings?.contact?.email}`}
+                          whiteSpace="normal"
+                          wordBreak="break-word"
+                        >
                           {settings?.contact?.email}
-                        </a>
+                        </Text>
                       </td>
                     </tr>
                     <tr>

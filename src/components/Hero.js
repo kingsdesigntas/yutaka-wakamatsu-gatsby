@@ -109,6 +109,8 @@ export const HeroSingle = ({
       position="relative"
       py={[null, null, "32"]}
       height={isCarousel ? "100%" : "auto"}
+      display={isCarousel ? "flex" : "block"}
+      flexDirection="column"
     >
       {/* Background */}
       <Box
@@ -124,13 +126,16 @@ export const HeroSingle = ({
         })`}
         backgroundSize="cover"
         backgroundPosition="center center"
+        flexGrow="1"
       ></Box>
-      <Container position="relative" px={[0, null, 2]}>
+      <Container position="relative" px={[0, null, 2]} minWidth="100%">
         <Flex align="center" maxWidth={["100%", null, "50%"]}>
           <Box
             bg={["blue.500", null, "transparent"]}
             px={["3", null, 0]}
             py={["4", null, 0]}
+            w="100%"
+            pb={["12", null, 0]}
           >
             <Box
               bg={["blue.500", null, "blue.500-75"]}

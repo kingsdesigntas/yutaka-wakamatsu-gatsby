@@ -57,9 +57,12 @@ const Header = () => {
                 alert("this hasn't been set!")
               }}
               size="sm"
+              fontSize={["xs", null, "sm"]}
               py={[2, null, 4]}
               height="auto"
               fontWeight="bold"
+              whiteSpace="normal"
+              wordBreak="break-word"
             >
               Call {settings?.contact?.phone}
             </Button>
@@ -69,8 +72,11 @@ const Header = () => {
                 as="a"
                 href={`mailto:${settings?.contact?.email}`}
                 size="sm"
+                fontSize={["xs", null, "sm"]}
                 fontWeight="bold"
                 height="auto"
+                whiteSpace="normal"
+                wordBreak="break-word"
               >
                 Email {settings?.contact?.email}
               </Button>
@@ -102,7 +108,11 @@ const Header = () => {
             </Link>
           </Box>
           {/* Logos */}
-          <Flex maxW="sm" display={["none", null, null, "flex"]}>
+          <Flex
+            maxW="sm"
+            display={["none", null, null, "flex"]}
+            alignItems="center"
+          >
             {data?.cst_logo?.childImageSharp?.fluid && (
               <Box width="6rem" px="2">
                 <Img fluid={data.cst_logo.childImageSharp.fluid} />
