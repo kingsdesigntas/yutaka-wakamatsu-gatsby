@@ -3,6 +3,6 @@ templateKey: contact
 phone: 0400 123 456
 email: Yutaka@hobartcraniomassage.com.au
 address: |-
-  1234 Street Name,
-  Hobart TAS 7000
+  Level 1, 16 Montpelier Retreat
+  Battery Point TAS 7004
 ---
