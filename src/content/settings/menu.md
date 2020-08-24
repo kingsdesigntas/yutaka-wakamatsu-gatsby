@@ -28,13 +28,13 @@ secondary:
       url: ""
       title: About Yutaka
   - link:
-      slug: null
-      collection: null
-      url: "#contact"
-      title: Contact
-  - link:
       slug: cst-study-group
       collection: pages
       url: ""
       title: CST Study Group
+  - link:
+      slug: contact-and-bookings
+      collection: pages
+      url: ""
+      title: Contact and Bookings
 ---
