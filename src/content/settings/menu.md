@@ -2,6 +2,11 @@
 templateKey: menu
 primary:
   - link:
+      slug: index
+      collection: template_pages
+      url: ""
+      title: Home
+  - link:
       slug: craniosacral-therapy-cst
       collection: pages
       url: ""
