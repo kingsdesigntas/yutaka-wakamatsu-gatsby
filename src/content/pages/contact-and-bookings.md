@@ -5,7 +5,7 @@ content: |-
 
   Phone: 03 6224 1444
   Mobile: 0432 132 600
-  Email: 
+  Email: Yutaka@hobartcraniomassage.com.au
 
   Yutaka Wakamatsu
   Hobart CranioSacral & Massage
