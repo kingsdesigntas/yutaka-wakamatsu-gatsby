@@ -30,4 +30,5 @@ content: >-
 
 
   ![Upledger CST Certified](/assets/cst-logo.jpg)
+image: /assets/foto_116.jpg
 ---
