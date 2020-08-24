@@ -60,4 +60,8 @@ sections:
         collection: pages
         url: ""
         title: More about remedial massage
+      - slug: contact-and-bookings
+        collection: pages
+        url: ""
+        title: Book now
 ---
