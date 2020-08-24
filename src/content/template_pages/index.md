@@ -34,7 +34,7 @@ main:
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at arcu odio. Nullam at magna sit amet velit egestas varius. Curabitur at fringilla orci. Proin in velit ullamcorper, tempor est eu, egestas orci.
   image: /assets/foto_050.jpg
 sections:
-  - title: Craniosacral Therapy
+  - title: CranioSacral Therapy
     content: >-
       THIS TEXT IS THE SAME AS HERO COPY!
 
