@@ -23,7 +23,9 @@ export const query = graphql`
       fields: { sourceInstanceName: { eq: "pages" }, slug: { eq: $slug } }
     ) {
       frontmatter {
-        content
+        content {
+          html
+        }
         description
         title
         heroimage {

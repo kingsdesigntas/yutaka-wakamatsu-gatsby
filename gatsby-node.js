@@ -2,8 +2,13 @@ const _ = require("lodash")
 const path = require("path")
 const { createFilePath } = require("gatsby-source-filesystem")
 const { fmImagesToRelative } = require("gatsby-remark-relative-images")
+const { get, set } = require("lodash")
 
 const parseMarkdown = require("./src/lib/parseMarkdown")
+const frontmatterImages = require("./frontmatterImages")
+
+const remark = require("remark")
+const remarkHTML = require("remark-html")
 
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
@@ -42,8 +47,47 @@ exports.createPages = async ({ actions, graphql }) => {
   })
 }
 
-exports.onCreateNode = async ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
+function createFrontmatterContentNode(
+  node,
+  path,
+  { createNodeId, createNode, createContentDigest }
+) {
+  const md = get(node, path)
+
+  const html = remark().use(remarkHTML).processSync(md).toString()
+
+  const nodeContent = {
+    md,
+    html,
+  }
+
+  const frontmatterContentNode = {
+    id: createNodeId(`${node.id} ${path} >>> MarkdownRemark`),
+    children: [],
+    parent: node.id,
+    internal: {
+      contentDigest: createContentDigest(nodeContent),
+      type: `FrontmatterContent`,
+    },
+    ...nodeContent,
+  }
+
+  createNode(frontmatterContentNode)
+
+  set(node, path + "___NODE", frontmatterContentNode.id)
+}
+
+exports.onCreateNode = async ({
+  node,
+  actions,
+  getNode,
+  createNodeId,
+  createContentDigest,
+  getNodesByType,
+  reporter,
+  cache,
+}) => {
+  const { createNodeField, createNode } = actions
   fmImagesToRelative(node) // convert image paths for gatsby images
 
   if (node.internal.type === `MarkdownRemark`) {
@@ -54,19 +98,36 @@ exports.onCreateNode = async ({ node, actions, getNode }) => {
       value,
     })
 
-    if (
-      node.frontmatter &&
-      node.frontmatter.main &&
-      node.frontmatter.main.content
-    ) {
-      node.frontmatter.main.content = await parseMarkdown(
-        node.frontmatter.main.content
-      )
-    }
+    // if (
+    //   node.frontmatter &&
+    //   node.frontmatter.main &&
+    //   node.frontmatter.main.content
+    // ) {
+    //   node.frontmatter.main.content = await parseMarkdown(
+    //     node.frontmatter.main.content
+    //   )
+    // }
 
     if (node.frontmatter && node.frontmatter.content) {
-      node.frontmatter.content = await parseMarkdown(node.frontmatter.content)
+      createFrontmatterContentNode(node, "frontmatter.content", {
+        createNodeId,
+        createNode,
+        createContentDigest,
+      })
+      //  node.frontmatter.content = await parseMarkdown(node.frontmatter.content)
     }
+  }
+
+  if (node.internal.type === `FrontmatterContent`) {
+    const files = getNodesByType(`File`)
+    const r = await frontmatterImages({
+      getNode,
+      files,
+      markdownNode: node,
+      reporter,
+      cache,
+      assetsPath: path.join(process.cwd(), "static"),
+    })
   }
 }
 

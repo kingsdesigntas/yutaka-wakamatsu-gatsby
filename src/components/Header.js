@@ -41,8 +41,6 @@ const Header = () => {
     }
   `)
 
-  console.log(data)
-
   return (
     <Box as="header">
       <Container px={[0, null, null, 2]}>

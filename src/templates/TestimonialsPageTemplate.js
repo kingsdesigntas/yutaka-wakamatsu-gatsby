@@ -40,7 +40,7 @@ const TestimonialsPageTemplate = ({
           <Text fontSize="3xl" mb="4">
             {title}
           </Text>
-          <Copy>{content}</Copy>
+          <Copy dangerouslySetInnerHTML={{ __html: content?.html }} />
         </Container>
       )}
       {(testimonials?.length || isPreview) && (

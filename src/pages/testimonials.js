@@ -30,7 +30,9 @@ export const query = graphql`
         templateKey
         title
         description
-        content
+        content {
+          html
+        }
       }
     }
 

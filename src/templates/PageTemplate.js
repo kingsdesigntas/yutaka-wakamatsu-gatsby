@@ -45,7 +45,7 @@ const PageTemplate = ({
                 {title}
               </Text>
             )}
-            <Copy dangerouslySetInnerHTML={{ __html: content }} />
+            <Copy dangerouslySetInnerHTML={{ __html: content?.html }} />
           </Box>
           <Box>
             {image && (
