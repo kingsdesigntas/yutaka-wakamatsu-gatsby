@@ -172,7 +172,7 @@ const Footer = () => {
           <Text>
             You can make a booking request using the form below. I also welcome
             your feedback and questions. I will respond to you as soon as
-            possible. You can also contact me by email
+            possible. You can also contact me by email{" "}
             <Text
               as="a"
               href={`mailto:${settings?.contact?.email}`}
@@ -366,15 +366,6 @@ const Footer = () => {
               </Box>
               <Box my="10" textAlign="left" maxW="xs" mx="auto">
                 <Stack isInline spacing="5" alignItems="center">
-                  <Text
-                    as="a"
-                    href="https://facebook.com/yutakamassagecst"
-                    rel="nofollow noreferrer"
-                    target="_blank"
-                    fontSize="2xl"
-                  >
-                    <FaFacebook />
-                  </Text>
                   {/* Logos */}
                   <Flex
                     maxW="sm"
@@ -397,6 +388,19 @@ const Footer = () => {
                     )}
                   </Flex>
                 </Stack>
+                <Box mt="6">
+                  <Button
+                    as="a"
+                    href="https://facebook.com/yutakamassagecst"
+                    rel="nofollow noreferrer"
+                    target="_blank"
+                    leftIcon={FaFacebook}
+                    variantColor="blue"
+                    rounded="md"
+                  >
+                    Find me on Facebook
+                  </Button>
+                </Box>
               </Box>
             </Box>
           </SimpleGrid>
