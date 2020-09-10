@@ -95,7 +95,7 @@ const Header = () => {
           pb={[3, null, 6]}
         >
           {/* Brand */}
-          <Box maxW="sm">
+          <Box maxW="xs">
             <Link to="/">
               <Text
                 fontSize={["xl", null, "2xl", "3xl"]}
