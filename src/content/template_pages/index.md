@@ -20,9 +20,35 @@ hero:
         collection: null
         url: "#book-now"
         title: Book now
-  - title: Hero slide 2
-    text: This is slide 2
+  - title: Remedial Massage
+    text: Remedial massage is a manual manipulation of soft tissue which aims to
+      treat muscles that are damaged, knotted, tense or immobile. It is useful
+      for a number of body dysfunctions that affect the muscles, tendons and
+      bones.
     image: /assets/foto_050.jpg
+    actions:
+      - slug: remedial-massage
+        collection: pages
+        url: ""
+        title: Read more
+      - slug: null
+        collection: null
+        url: "#book-now"
+        title: Book now
+  - title: About Yutaka
+    text: Yutaka is a certified Upledger CranioSacral Therapist as well as Remedial
+      Massage Therapist in Hobart. His amazing healing hands help your aches and
+      pains. Meet Yutaka.
+    actions:
+      - slug: about-yutaka
+        collection: pages
+        url: ""
+        title: Read more
+      - slug: null
+        collection: null
+        url: "#book-now"
+        title: Book now
+    image: /assets/foto_055.jpg
 main:
   title: Hobart CranioSacral & Remedial Massage
   content: >-
