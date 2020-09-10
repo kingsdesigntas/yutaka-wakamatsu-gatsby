@@ -137,6 +137,7 @@ export const Carousel = ({
 
   const arrowOnClick = direction => {
     return e => {
+      maybeResetAutoPlay()
       e.preventDefault()
       paginate(direction)
     }
@@ -182,11 +183,55 @@ export const Carousel = ({
     autoPlayTimeout.current = setTimeout(onAutoPlay, autoPlayInterval)
   }
 
+  const onVisibilityChanged = () => {
+    if (
+      document.hidden ||
+      document.mozHidden ||
+      document.webkitHidden ||
+      document.msHidden
+    ) {
+      // The tab has lost focus
+      if (autoPlayTimeout.current) clearTimeout(autoPlayTimeout.current)
+    } else {
+      // The tab has gained focus
+      scheduleAutoPlay()
+    }
+  }
+
   useEffect(() => {
     if (autoPlay !== true) return
     scheduleAutoPlay()
+    document.addEventListener("visibilitychange", onVisibilityChanged, false)
+    document.addEventListener("mozvisibilitychange", onVisibilityChanged, false)
+    document.addEventListener(
+      "webkitvisibilitychange",
+      onVisibilityChanged,
+      false
+    )
+    document.addEventListener("msvisibilitychange", onVisibilityChanged, false)
     return () => {
       if (autoPlayTimeout.current) clearTimeout(autoPlayTimeout.current)
+
+      document.removeEventListener(
+        "visibilitychange",
+        onVisibilityChanged,
+        false
+      )
+      document.removeEventListener(
+        "mozvisibilitychange",
+        onVisibilityChanged,
+        false
+      )
+      document.removeEventListener(
+        "webkitvisibilitychange",
+        onVisibilityChanged,
+        false
+      )
+      document.removeEventListener(
+        "msvisibilitychange",
+        onVisibilityChanged,
+        false
+      )
     }
   }, [])
 
@@ -252,6 +297,8 @@ export const Carousel = ({
                 } else if (swipe > swipeConfidenceThreshold) {
                   paginate(-1)
                 }
+
+                maybeResetAutoPlay()
               }}
             >
               {children[slideIndex]}

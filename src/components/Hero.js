@@ -11,6 +11,7 @@ const HeroCarousel = ({ slides }) => {
   return (
     <Carousel
       autoPlay={true}
+      showIndicators={true}
       renderIndicatorWrapper={({ children }) => {
         return (
           <Box position="absolute" bottom="3rem" right="1rem" zIndex="10">
