@@ -38,7 +38,7 @@ const PageTemplate = ({
       )}
       {heroimage && <HeroSingle title={title} image={heroimage} />}
       <Container py={[10, null, 20]}>
-        <Grid templateColumns={["100%", null, "3fr 2fr", "3fr 1fr"]} gap="5">
+        <Grid templateColumns={["100%", null, "3fr 2fr", "3fr 2fr"]} gap="5">
           <Box>
             {!heroimage && (
               <Text fontSize="3xl" mb="4" as="h1">
@@ -49,7 +49,7 @@ const PageTemplate = ({
           </Box>
           <Box>
             {image && (
-              <Box maxW="sm" mx="auto">
+              <Box maxW="lg" mx="auto">
                 {image?.childImageSharp ? (
                   <Img fluid={image.childImageSharp.fluid} />
                 ) : (
