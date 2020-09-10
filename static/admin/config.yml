@@ -138,7 +138,12 @@ collections:
               required: false,
             }
           - { label: Content, name: content, widget: markdown, required: false }
-          - { label: Hero Image, name: heroimage, widget: image, required: false },
+          - {
+              label: Hero Image,
+              name: heroimage,
+              widget: image,
+              required: false,
+            }
   - name: "testimonials"
     label: "Testimonials"
     create: true
