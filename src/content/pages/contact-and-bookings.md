@@ -31,7 +31,7 @@ content: >-
   ### Business Hours
 
 
-  Wednesday: 9:30am to 6:30pm\
+  Wednesday: 9:30am to 6:30pm
 
   Thursday: 8:00am to 5:00pm
 
