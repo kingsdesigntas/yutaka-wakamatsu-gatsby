@@ -15,31 +15,31 @@ import mapLink from "../lib/mapLink"
 const Header = () => {
   const settings = useSettings()
 
-  const data = useStaticQuery(graphql`
-    query HeaderQuery {
-      cst_logo: file(
-        sourceInstanceName: { eq: "uploads" }
-        name: { eq: "cst_logo" }
-      ) {
-        childImageSharp {
-          fluid(maxWidth: 100) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
+  // const data = useStaticQuery(graphql`
+  //   query HeaderQuery {
+  //     cst_logo: file(
+  //       sourceInstanceName: { eq: "uploads" }
+  //       name: { eq: "cst_logo" }
+  //     ) {
+  //       childImageSharp {
+  //         fluid(maxWidth: 100) {
+  //           ...GatsbyImageSharpFluid
+  //         }
+  //       }
+  //     }
 
-      massage_mytotherapy_logo: file(
-        sourceInstanceName: { eq: "uploads" }
-        name: { eq: "massage_mytotherapy_logo" }
-      ) {
-        childImageSharp {
-          fluid(maxWidth: 100) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
+  //     massage_mytotherapy_logo: file(
+  //       sourceInstanceName: { eq: "uploads" }
+  //       name: { eq: "massage_mytotherapy_logo" }
+  //     ) {
+  //       childImageSharp {
+  //         fluid(maxWidth: 100) {
+  //           ...GatsbyImageSharpFluid
+  //         }
+  //       }
+  //     }
+  //   }
+  // `)
 
   return (
     <Box as="header">
@@ -111,7 +111,7 @@ const Header = () => {
             </Link>
           </Box>
           {/* Logos */}
-          <Flex
+          {/* <Flex
             maxW="sm"
             display={["none", null, null, "flex"]}
             alignItems="center"
@@ -128,7 +128,7 @@ const Header = () => {
                 />
               </Box>
             )}
-          </Flex>
+          </Flex> */}
           {/* Secondary Nav */}
           <Box display={["none", null, "block"]}>
             <Stack as="nav" isInline spacing="3">
