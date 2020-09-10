@@ -77,7 +77,12 @@ const Footer = () => {
       {}
     )
 
-    if (!formData.name || !formData.email || !formData.message) {
+    if (
+      !formData.firstname ||
+      !formData.lastname ||
+      !formData.email ||
+      !formData.message
+    ) {
       setFormError("Please enter your name, email and a message.")
       return
     }
@@ -205,33 +210,73 @@ const Footer = () => {
                     <Flex mx={-2}>
                       <Box w="50%" px="2">
                         <FormControl>
-                          <FormLabel htmlFor="text" fontWeight="bold">
-                            Name
+                          <FormLabel htmlFor="firstname" fontWeight="bold">
+                            First Name
                           </FormLabel>
                           <Input
                             type="text"
-                            id="name"
-                            name="name"
+                            id="firstname"
+                            name="firstnamename"
                             isDisabled={formSending}
+                            isRequired={true}
                             {...inputStyles}
                           />
                         </FormControl>
                       </Box>
                       <Box w="50%" px="2">
                         <FormControl>
-                          <FormLabel htmlFor="email" fontWeight="bold">
-                            Email
+                          <FormLabel htmlFor="lastname" fontWeight="bold">
+                            Last Name
                           </FormLabel>
                           <Input
-                            type="email"
-                            id="email"
-                            name="email"
+                            type="text"
+                            id="lastname"
+                            name="lastname"
                             isDisabled={formSending}
+                            isRequired={true}
                             {...inputStyles}
                           />
                         </FormControl>
                       </Box>
                     </Flex>
+                    <FormControl>
+                      <FormLabel htmlFor="email" fontWeight="bold">
+                        Email
+                      </FormLabel>
+                      <Input
+                        type="email"
+                        id="email"
+                        name="email"
+                        isDisabled={formSending}
+                        isRequired={true}
+                        {...inputStyles}
+                      />
+                    </FormControl>
+                    <FormControl>
+                      <FormLabel htmlFor="phone" fontWeight="bold">
+                        Phone Number
+                      </FormLabel>
+                      <Input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        isDisabled={formSending}
+                        isRequired={true}
+                        {...inputStyles}
+                      />
+                    </FormControl>
+                    <FormControl>
+                      <FormLabel htmlFor="subject" fontWeight="bold">
+                        Subject
+                      </FormLabel>
+                      <Input
+                        type="text"
+                        id="subject"
+                        name="subhect"
+                        isDisabled={formSending}
+                        {...inputStyles}
+                      />
+                    </FormControl>
                     <FormControl>
                       <FormLabel htmlFor="message" fontWeight="bold">
                         Message
