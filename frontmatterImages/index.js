@@ -364,5 +364,5 @@ module.exports = async ({
 
   const content = compiler.toHTML(tree)
 
-  markdownNode.html = content
+  markdownNode.html = content.replace(/(?:\\n|\n)/g, "<br/>")
 }
