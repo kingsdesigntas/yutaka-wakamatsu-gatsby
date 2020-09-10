@@ -17,6 +17,8 @@ content: >-
   CranioSacral Therapy was developed by Dr. John E. Upledger, D.O., an osteopathic physician and researcher at the Michigan State University in the early 1970s. He established the Upledger Institute in Florida in 1985; now his CranioSacral Therapy techniques and research are being recognised and and widely incorporated in Remedial Massage Therapy, Physiotherapy, Chiropractic, Osteopathic and many other therapies all over the world.
 
 
+
+
   ![CranioSacral Therapy photo](/assets/foto_068.jpg)
 
 
@@ -36,6 +38,8 @@ content: >-
 
 
   I usually recommend at least three sessions to release tension patterns, restrictions or affect the functioning of all body system. After the series of sessions, I review the treatment plan. If I feel progress is not being made, I will suggest alternative treatments or refer you to another specialist.
+
+
 
 
   ![CranioSacral Therapy closeup](/assets/foto_075.jpg)
