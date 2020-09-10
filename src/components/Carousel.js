@@ -55,13 +55,15 @@ export const Slide = ({ children, index }) => {
 
 export const Carousel = ({
   children,
+  showIndicators = false,
   renderIndicator: _renderIndicator = null,
-  showIndicators = true,
   renderIndicatorWrapper: _renderIndicatorWrapper = null,
   autoPlay = false,
   autoPlayInterval = 3000,
   autoPlayDirection = 1,
   showArrows = false,
+  renderArrow: _renderArrow = null,
+  renderArrowWrapper: _renderArrowWrapper = null,
 }) => {
   const [[page, direction], setPage] = useState([0, 0])
   const [isDragging, setIsDragging] = useState(false)
@@ -133,6 +135,38 @@ export const Carousel = ({
           )
         }
 
+  const arrowOnClick = direction => {
+    return e => {
+      e.preventDefault()
+      paginate(direction)
+    }
+  }
+  const renderArrow =
+    typeof _renderArrow === "function"
+      ? _renderArrow
+      : ({ direction, onClick }) => (
+          <button
+            onClick={onClick}
+            className={`carousel-arrow--${direction === -1 ? "prev" : "next"}`}
+          >
+            {direction === -1 ? "Previous" : "Next"}
+          </button>
+        )
+
+  const renderArrowChildren = () => {
+    return (
+      <>
+        {renderArrow({ direction: -1, onClick: arrowOnClick(-1) })}
+        {renderArrow({ direction: 1, onClick: arrowOnClick(1) })}
+      </>
+    )
+  }
+
+  const renderArrowWrapper =
+    typeof _renderArrowWrapper === "function"
+      ? () => _renderArrowWrapper({ children: renderArrowChildren() })
+      : () => <div className="carousel-arrows">{renderArrowChildren()}</div>
+
   const maybeResetAutoPlay = () => {
     if (autoPlayTimeout.current) {
       clearTimeout(autoPlayTimeout.current)
@@ -141,7 +175,7 @@ export const Carousel = ({
   }
 
   const onAutoPlay = () => {
-    paginate(1)
+    paginate(autoPlayDirection)
     scheduleAutoPlay()
   }
   const scheduleAutoPlay = () => {
@@ -226,16 +260,7 @@ export const Carousel = ({
         </div>
       </Box>
 
-      {showArrows && (
-        <Box>
-          <Box className="carousel-prev">
-            <button onClick={() => paginate(-1)}>Prev</button>
-          </Box>
-          <Box className="carousel-next">
-            <button onClick={() => paginate(1)}>Next</button>
-          </Box>
-        </Box>
-      )}
+      {showArrows === true && renderArrowWrapper()}
 
       {showIndicators === true && renderIndicatorWrapper()}
 
