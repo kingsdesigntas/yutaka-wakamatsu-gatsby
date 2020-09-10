@@ -1,5 +1,7 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core"
+import { useStaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
 import { useRef, useState, useEffect } from "react"
 import Container from "./Container"
 import {
@@ -21,6 +23,32 @@ import { FaFacebook } from "react-icons/fa"
 
 const Footer = () => {
   const settings = useSettings()
+
+  const data = useStaticQuery(graphql`
+    query FooterQuery {
+      cst_logo: file(
+        sourceInstanceName: { eq: "uploads" }
+        name: { eq: "cst_logo" }
+      ) {
+        childImageSharp {
+          fluid(maxWidth: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+
+      massage_mytotherapy_logo: file(
+        sourceInstanceName: { eq: "uploads" }
+        name: { eq: "massage_mytotherapy_logo" }
+      ) {
+        childImageSharp {
+          fluid(maxWidth: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
 
   const inputStyles = {
     bg: "blue.700",
@@ -274,15 +302,38 @@ const Footer = () => {
                 </table>
               </Box>
               <Box my="10" textAlign="left" maxW="xs" mx="auto">
-                <Text
-                  as="a"
-                  href="https://facebook.com/yutakamassagecst"
-                  rel="nofollow noreferrer"
-                  target="_blank"
-                  fontSize="2xl"
-                >
-                  <FaFacebook />
-                </Text>
+                <Stack isInline spacing="5" alignItems="center">
+                  <Text
+                    as="a"
+                    href="https://facebook.com/yutakamassagecst"
+                    rel="nofollow noreferrer"
+                    target="_blank"
+                    fontSize="2xl"
+                  >
+                    <FaFacebook />
+                  </Text>
+                  {/* Logos */}
+                  <Flex
+                    maxW="sm"
+                    display={["none", null, null, "flex"]}
+                    alignItems="center"
+                  >
+                    {data?.cst_logo?.childImageSharp?.fluid && (
+                      <Box width="6rem" px="2">
+                        <Img fluid={data.cst_logo.childImageSharp.fluid} />
+                      </Box>
+                    )}
+                    {data?.massage_mytotherapy_logo?.childImageSharp?.fluid && (
+                      <Box width="6rem" px="2">
+                        <Img
+                          fluid={
+                            data.massage_mytotherapy_logo.childImageSharp.fluid
+                          }
+                        />
+                      </Box>
+                    )}
+                  </Flex>
+                </Stack>
               </Box>
             </Box>
           </SimpleGrid>
