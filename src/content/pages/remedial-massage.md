@@ -41,7 +41,9 @@ content: >-
 
   * Conditioning for your pre/post sport events
 
-    ![Remedial Massage by Yutaka Wakamatsu](/assets/foto_009.jpg)
+
+  ![Remedial Massage by Yutaka Wakamatsu](/assets/foto_009.jpg)
+
 
   **Combination of Remedial Massage and CranioSacral Therapy**
 
