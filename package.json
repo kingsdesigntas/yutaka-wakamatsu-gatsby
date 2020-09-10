@@ -43,6 +43,7 @@
     "rehype-format": "^3.1.0",
     "rehype-react": "^6.1.0",
     "remark": "^12.0.1",
+    "remark-breaks": "^2.0.0",
     "remark-html": "^12.0.0",
     "remark-parse": "^8.0.3",
     "remark-preset-lint-recommended": "^4.0.1",

@@ -27,12 +27,13 @@ const remark2rehype = require("remark-rehype")
 const markdown = require("remark-parse")
 var hastUtiltoHtml = require("hast-util-to-html")
 var visit = require("unist-util-visit")
+var remarkBreaks = require("remark-breaks")
 
 const compiler = {
   htmlToAST: string => {
     let tree
     rehype()
-      .use(format)
+      // .use(format)
       .use(() => _tree => (tree = _tree))
       .process(string)
 
@@ -43,6 +44,7 @@ const compiler = {
     let tree
     rehype()
       .use(markdown)
+      .use(remarkBreaks)
       .use(remark2rehype)
       .use(() => _tree => (tree = _tree))
       .process(string)
@@ -330,6 +332,7 @@ module.exports = async ({
   // console.log(markdownNode.html)
 
   const tree = compiler.mdToAST(markdownNode.md)
+
   const nodes = []
 
   visit(
@@ -341,6 +344,14 @@ module.exports = async ({
       nodes.push(node)
     }
   )
+
+  // visit(
+  //   tree,
+  //   node => node.tagName === "p",
+  //   node => {
+  //     console.log("paragraph", node)
+  //   }
+  // )
 
   const generateImageHTML = replaceGatsbyImage({
     markdownNode,
@@ -364,5 +375,5 @@ module.exports = async ({
 
   const content = compiler.toHTML(tree)
 
-  markdownNode.html = content.replace(/(?:\\n|\n)/g, "<br/>")
+  markdownNode.html = content //.replace(/(?:\\n|\n)/g, "<br/>")
 }
