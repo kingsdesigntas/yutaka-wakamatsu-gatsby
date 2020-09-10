@@ -56,4 +56,5 @@ content: >-
   If you are unable to keep your appointment, please provide 24 hours’ notice. 
 
   A fee may be charged for late cancellations or failure to attend.
+heroimage: /assets/foto_096.jpg
 ---
