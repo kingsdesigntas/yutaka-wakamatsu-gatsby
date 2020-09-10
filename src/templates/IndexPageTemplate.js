@@ -94,14 +94,30 @@ const IndexPageTemplate = ({
           </Box>
         </Box>
       )}
-      <Hero slides={hero} />
+      {isPreview ? (
+        <Box border="1px solid" borderColor="gray.100" p="4">
+          <Text fontSize="sm" fontWeight="bold">
+            Hero
+          </Text>
+
+          {Object.values(hero).map((slide, index) => (
+            <Box key={index}>{slide.title}</Box>
+          ))}
+        </Box>
+      ) : (
+        <Hero slides={hero} />
+      )}
       <Container py={[10, null, 20]}>
         <Grid templateColumns={["100%", null, "3fr 2fr", "3fr 1fr"]} gap="5">
           <Box>
             <Text fontSize={["2xl", "3xl", "4xl"]} as="h1" mb="3">
               {main.title}
             </Text>
-            <Copy dangerouslySetInnerHTML={{ __html: main.content }} />
+            {isPreview ? (
+              main.content
+            ) : (
+              <Copy dangerouslySetInnerHTML={{ __html: main.content }} />
+            )}
           </Box>
           <Box>
             <Box maxW="sm" mx="auto">

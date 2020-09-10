@@ -9,7 +9,7 @@ import linkWidgetSchema from "./LinkWidget/schema"
 import IndexPagePreview from "./preview-templates/IndexPagePreview"
 import PagePreview from "./preview-templates/PagePreview"
 
-//CMS.registerPreviewTemplate("index", withEmotion(IndexPagePreview))
+CMS.registerPreviewTemplate("index", withEmotion(IndexPagePreview))
 CMS.registerPreviewTemplate("pages", withEmotion(PagePreview))
 
 CMS.registerWidget(
