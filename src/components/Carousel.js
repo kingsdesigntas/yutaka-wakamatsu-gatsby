@@ -176,6 +176,7 @@ export const Carousel = ({
   }
 
   const onAutoPlay = () => {
+    console.log("auto")
     paginate(autoPlayDirection)
     scheduleAutoPlay()
   }
@@ -184,6 +185,7 @@ export const Carousel = ({
   }
 
   const onVisibilityChanged = () => {
+    if (autoPlayTimeout.current) clearTimeout(autoPlayTimeout.current)
     if (
       document.hidden ||
       document.mozHidden ||
@@ -191,7 +193,6 @@ export const Carousel = ({
       document.msHidden
     ) {
       // The tab has lost focus
-      if (autoPlayTimeout.current) clearTimeout(autoPlayTimeout.current)
     } else {
       // The tab has gained focus
       scheduleAutoPlay()
