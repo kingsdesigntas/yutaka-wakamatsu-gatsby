@@ -3,14 +3,15 @@ import React from "react"
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
 import Hero from "../components/Hero"
-import { Text, Grid, Box, Stack } from "@chakra-ui/core"
+import { Text, Grid, Box, Stack, Flex } from "@chakra-ui/core"
 import Container from "../components/Container"
 import Img from "gatsby-image"
 import Copy from "../components/Copy"
 import Button from "../components/Button"
 import TestimonialCarousel from "../components/TestimonialCarousel"
-import { MdFormatQuote } from "react-icons/md"
+import { MdChevronRight, MdFormatQuote } from "react-icons/md"
 import mapLink from "../lib/mapLink"
+import { Link } from "gatsby"
 
 const Section = ({
   image = null,
@@ -138,24 +139,38 @@ const IndexPageTemplate = ({
                 Testimonials
               </Text>
             ) : (
-              <TestimonialCarousel>
-                {testimonials.map(({ name, text }, index) => (
-                  <Box pb="4" key={index}>
-                    <Text fontSize="lg">
-                      <Text as={"span"} display="inline-block" fontSize="2xl">
-                        <MdFormatQuote />
+              <>
+                <TestimonialCarousel>
+                  {testimonials.map(({ name, text }, index) => (
+                    <Box pb="4" key={index}>
+                      <Text fontSize="lg">
+                        <Text as={"span"} display="inline-block" fontSize="2xl">
+                          <MdFormatQuote />
+                        </Text>
+                        {text}
+                        <Text as={"span"} display="inline-block" fontSize="2xl">
+                          <MdFormatQuote />
+                        </Text>
                       </Text>
-                      {text}
-                      <Text as={"span"} display="inline-block" fontSize="2xl">
-                        <MdFormatQuote />
+                      <Text mt="4" textAlign="right" fontWeight="bold">
+                        - {name}
                       </Text>
-                    </Text>
-                    <Text mt="4" textAlign="right" fontWeight="bold">
-                      - {name}
-                    </Text>
-                  </Box>
-                ))}
-              </TestimonialCarousel>
+                    </Box>
+                  ))}
+                </TestimonialCarousel>
+                <Flex justifyContent="center">
+                  <Button
+                    variant="outline"
+                    as={Link}
+                    to={`/testimonials`}
+                    size="sm"
+                    variantColor="gray"
+                    rightIcon={MdChevronRight}
+                  >
+                    More testimonials
+                  </Button>
+                </Flex>
+              </>
             )}
           </Box>
         </Box>
