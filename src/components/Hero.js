@@ -4,12 +4,47 @@ import { Box, Flex, Text, Stack } from "@chakra-ui/core"
 import Container from "./Container"
 import { Link } from "gatsby"
 import Button from "./Button"
-
-import { Carousel } from "react-responsive-carousel"
 import mapLink from "../lib/mapLink"
+import { Carousel, Slide } from "./Carousel"
 
 const HeroCarousel = ({ slides }) => {
   return (
+    <Carousel
+      autoPlay={true}
+      renderIndicatorWrapper={({ children }) => {
+        return (
+          <Box position="absolute" bottom="3rem" right="1rem" zIndex="10">
+            <Stack spacing="2" isInline>
+              {children}
+            </Stack>
+          </Box>
+        )
+      }}
+      renderIndicator={({ index, isActive, onClick }) => {
+        return (
+          <Box
+            display="block"
+            as="button"
+            onClick={onClick}
+            aria-label={`Go to slide ${index}`}
+            rounded="full"
+            width="1rem"
+            height="1rem"
+            bg="white"
+            opacity={isActive ? 1 : 0.5}
+            key={index}
+          />
+        )
+      }}
+    >
+      {slides.map((slide, index) => (
+        <Slide index={index} key={index}>
+          <HeroSingle {...slide} isCarousel={true} />
+        </Slide>
+      ))}
+    </Carousel>
+  )
+  /*return (
     <Carousel
       showThumbs={false}
       showStatus={false}
@@ -91,7 +126,7 @@ const HeroCarousel = ({ slides }) => {
         <HeroSingle key={index} {...slide} isCarousel={true} />
       ))}
     </Carousel>
-  )
+  )*/
 }
 
 export const HeroSingle = ({
