@@ -165,8 +165,26 @@ const Footer = () => {
             Make a booking
           </Text>
           <Text>
-            Request a booking using the form below. I also welcome your feedback
-            and questions.
+            You can make a booking request using the form below. I also welcome
+            your feedback and questions. I will respond to you as soon as
+            possible. You can also contact me by email
+            <Text
+              as="a"
+              href={`mailto:${settings?.contact?.email}`}
+              whiteSpace="normal"
+              wordBreak="break-word"
+              textDecoration="underline"
+            >
+              {settings?.contact?.email}
+            </Text>{" "}
+            or call or text{" "}
+            <Text
+              as="a"
+              textDecoration="underline"
+              href={`tel:${phoneToLink(settings?.contact?.phone)}`}
+            >
+              {settings?.contact?.phone}
+            </Text>
           </Text>
           <SimpleGrid columns={[1, null, 2]} mt="6">
             <Box textAlign="left">
@@ -257,10 +275,10 @@ const Footer = () => {
                 >
                   <tbody>
                     <tr>
-                      <td>
+                      <Box as="td" p="2">
                         <strong>Email</strong>
-                      </td>
-                      <td>
+                      </Box>
+                      <Box as="td" p="2">
                         <Text
                           as="a"
                           href={`mailto:${settings?.contact?.email}`}
@@ -269,25 +287,25 @@ const Footer = () => {
                         >
                           {settings?.contact?.email}
                         </Text>
-                      </td>
+                      </Box>
                     </tr>
                     <tr>
-                      <td>
+                      <Box as="td" p="2">
                         <strong>Phone</strong>
-                      </td>
-                      <td>
+                      </Box>
+                      <Box as="td" p="2">
                         <a
                           href={`tel:${phoneToLink(settings?.contact?.phone)}`}
                         >
                           {settings?.contact?.phone}
                         </a>
-                      </td>
+                      </Box>
                     </tr>
                     <tr>
-                      <td>
+                      <Box as="td" p="2">
                         <strong>Address</strong>
-                      </td>
-                      <td>
+                      </Box>
+                      <Box as="td" p="2">
                         <a
                           href={`https://google.com/maps/dir//${encodeURIComponent(
                             settings?.contact?.address
@@ -296,7 +314,7 @@ const Footer = () => {
                         >
                           {settings?.contact?.address}
                         </a>
-                      </td>
+                      </Box>
                     </tr>
                   </tbody>
                 </table>

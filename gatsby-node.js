@@ -54,7 +54,11 @@ function createFrontmatterContentNode(
 ) {
   const md = get(node, path)
 
-  const html = remark().use(remarkHTML).processSync(md).toString()
+  const html = remark()
+    .use(remarkHTML)
+    .processSync(md)
+    .toString()
+    .replace(/(?:\\n|\n)/g, "<br/>")
 
   const nodeContent = {
     md,
