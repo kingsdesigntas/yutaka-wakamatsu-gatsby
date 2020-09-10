@@ -76,7 +76,9 @@ const Header = () => {
                 whiteSpace="normal"
                 wordBreak="break-word"
               >
-                Email{" "}
+                <Text as="span" display={["inline", null, "none"]}>
+                  Email
+                </Text>
                 <Text as="span" display={["none", null, "inline"]}>
                   {settings?.contact?.email}
                 </Text>
